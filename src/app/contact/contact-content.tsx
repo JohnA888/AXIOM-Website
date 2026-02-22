@@ -396,11 +396,7 @@ export function ContactContent() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
             <div className="flex items-center gap-2 text-sm text-muted-text">
               <Mail className="h-4 w-4 text-accent-blue" />
-              <span>hello@axiom.ai</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-text">
-              <Phone className="h-4 w-4 text-accent-blue" />
-              <span>(512) 555-0199</span>
+              <span>hello@AxiomAssistant.ai</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-text">
               <MapPin className="h-4 w-4 text-accent-blue" />

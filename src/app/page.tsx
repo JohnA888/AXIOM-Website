@@ -15,6 +15,10 @@ import {
   Star,
   Check,
   ArrowRight,
+  Phone,
+  Lock,
+  Zap,
+  Eye,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -160,17 +164,23 @@ const features = [
     description:
       "Custom automations that chain modules together. Build once, run forever — no code required.",
   },
+  {
+    icon: Phone,
+    title: "Voice & Telephony",
+    description:
+      "Call screening, real-time voice guidance, voicemail transcription, and outbound calling — all governed by policy.",
+  },
 ];
 
 const replacedTools = [
-  { name: "Fyxer", price: "$19/mo" },
-  { name: "Reclaim", price: "$12/mo" },
-  { name: "Motion", price: "$34/mo" },
-  { name: "Superhuman", price: "$30/mo" },
-  { name: "Fireflies", price: "$19/mo" },
-  { name: "Otter", price: "$17/mo" },
-  { name: "Read.ai", price: "$20/mo" },
-  { name: "Calendly", price: "$12/mo" },
+  { name: "Fyxer", price: "$30/mo" },
+  { name: "Reclaim", price: "$10/mo" },
+  { name: "Motion", price: "$39/mo" },
+  { name: "Superhuman", price: "$33/mo" },
+  { name: "Fireflies", price: "$25/mo" },
+  { name: "Otter", price: "$14/mo" },
+  { name: "Read.ai", price: "$25/mo" },
+  { name: "Calendly", price: "$13/mo" },
   { name: "Tactiq", price: "$12/mo" },
 ];
 
@@ -222,7 +232,7 @@ const pricingTiers = [
     description: "For teams that want the full AXIOM experience.",
     features: [
       "Unlimited users",
-      "All 6 modules",
+      "All modules included",
       "Policy engine",
       "Shared memory",
       "Custom workflows",
@@ -271,7 +281,7 @@ export default function Home() {
       {/* ============================================================ */}
       {/*  1. HERO SECTION                                             */}
       {/* ============================================================ */}
-      <section className="relative min-h-screen bg-dark-bg bg-grid-pattern flex items-center pt-20">
+      <section className="relative bg-dark-bg bg-grid-pattern flex items-center pt-20">
         {/* Radial glow */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -406,7 +416,7 @@ export default function Home() {
           </div>
 
           {/* Savings counter */}
-          <div className="mt-20 text-center">
+          <div className="mt-12 text-center">
             <p className="text-success text-xl md:text-2xl font-bold animate-fade-up">
               <AnimatedCounter target={837} prefix="$" suffix="K" /> &ndash;{" "}
               <AnimatedCounter target={1530} prefix="$" suffix="K" />{" "}
@@ -503,7 +513,7 @@ export default function Home() {
               One governed platform. Everything connected.
             </h2>
             <p className="mt-4 text-lg text-muted-text max-w-2xl mx-auto">
-              Six powerful modules with shared memory, centralized policy governance,
+              Seven powerful modules with shared memory, centralized policy governance,
               and a Heartbeat engine that operates around the clock.
             </p>
           </div>
@@ -576,7 +586,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500">
                   Total:{" "}
                   <span className="text-gray-400 line-through font-semibold">
-                    $175/user/month
+                    $201/user/month
                   </span>
                 </p>
               </div>
@@ -663,7 +673,7 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
-      {/*  7. TESTIMONIALS                                             */}
+      {/*  7. WHY AXIOM                                                */}
       {/* ============================================================ */}
       <section className="py-24 lg:py-32 bg-surface">
         <div
@@ -675,77 +685,57 @@ export default function Home() {
           }`}
         >
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="mb-4 inline-block rounded-full bg-warning/10 px-4 py-1.5 text-xs font-semibold text-warning uppercase tracking-wide">
-              Testimonials
+            <span className="mb-4 inline-block rounded-full bg-accent-blue/10 px-4 py-1.5 text-xs font-semibold text-accent-blue uppercase tracking-wide">
+              Why AXIOM
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy leading-tight">
-              What early adopters are saying.
+              Built different by design.
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Sarah Chen",
-                role: "VP of Operations",
-                company: "TechCorp",
+                icon: Shield,
+                title: "AI Sovereignty",
+                description:
+                  "You choose your models, providers, and infrastructure. Run air-gapped or hybrid. Switch providers with zero code changes.",
               },
               {
-                name: "Marcus Johnson",
-                role: "IT Director",
-                company: "ScaleUp Inc.",
+                icon: Lock,
+                title: "Policy Governance",
+                description:
+                  "Every AI action evaluated against org rules before execution. Not after. Not optionally. Every action, every time.",
               },
               {
-                name: "Priya Patel",
-                role: "Chief of Staff",
-                company: "InnovateCo",
+                icon: Zap,
+                title: "Proactive Operation",
+                description:
+                  "The Heartbeat runs 24/7 on the server. Processes overnight email, monitors deadlines, prepares briefings while you sleep.",
               },
-            ].map((person, i) => (
+              {
+                icon: Eye,
+                title: "Memory Transparency",
+                description:
+                  "Employees see everything the AI knows about them in plain-text files they can read, edit, and delete.",
+              },
+            ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
+                className="group rounded-2xl border border-gray-200 bg-white p-8 hover:border-accent-blue/30 hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star
-                      key={j}
-                      className="h-4 w-4 fill-warning text-warning"
-                    />
-                  ))}
+                <div className="mb-5 inline-flex items-center justify-center rounded-xl bg-accent-light p-3 text-accent-blue group-hover:bg-accent-blue group-hover:text-white transition-colors">
+                  <item.icon className="h-6 w-6" />
                 </div>
-                <div className="mb-6 h-20 flex items-center justify-center rounded-lg bg-surface border border-dashed border-gray-300">
-                  <p className="text-xs text-muted-text italic">
-                    Testimonial coming soon
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-light text-accent-blue font-bold text-sm">
-                    {person.name[0]}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-navy">
-                      {person.name}
-                    </p>
-                    <p className="text-xs text-muted-text">
-                      {person.role}, {person.company}
-                    </p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-text leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
-
-          <p className="mt-8 text-center text-sm text-muted-text">
-            Early adopter testimonials coming soon. Interested in being
-            featured?{" "}
-            <Link
-              href="/contact"
-              className="text-accent-blue hover:underline font-medium"
-            >
-              Get in touch
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

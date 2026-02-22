@@ -1,30 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, X, ArrowRight, Minus } from "lucide-react";
+import { Check, X, ArrowRight, Minus, Shield, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "Compare",
   description:
-    "See how AXIOM replaces Fyxer, Reclaim, Motion, Superhuman, and Tactiq in a single AI operations platform. Compare features, pricing, and total cost of ownership.",
+    "See how AXIOM replaces nine AI point-solutions — and stacks up against OpenClaw, Microsoft Copilot, and Anthropic Cowork. Compare features, pricing, and total cost of ownership.",
 };
 
 /* ------------------------------------------------------------------ */
-/*  Data                                                               */
+/*  Point-solution comparison data                                     */
 /* ------------------------------------------------------------------ */
 
 type CellValue = true | false | "Partial" | string;
-
-interface MatrixRow {
-  capability: string;
-  axiom: CellValue;
-  fyxer: CellValue;
-  reclaim: CellValue;
-  motion: CellValue;
-  superhuman: CellValue;
-  tactiq: CellValue;
-}
 
 const columns = [
   "Capability",
@@ -33,174 +23,184 @@ const columns = [
   "Reclaim",
   "Motion",
   "Superhuman",
+  "Fireflies",
+  "Otter",
+  "Calendly",
   "Tactiq",
+  "Read.ai",
 ] as const;
+
+type ColumnKey =
+  | "axiom"
+  | "fyxer"
+  | "reclaim"
+  | "motion"
+  | "superhuman"
+  | "fireflies"
+  | "otter"
+  | "calendly"
+  | "tactiq"
+  | "readai";
+
+type MatrixRow = { capability: string } & Record<ColumnKey, CellValue>;
 
 const matrixRows: MatrixRow[] = [
   {
     capability: "Email triage",
-    axiom: true,
-    fyxer: true,
-    reclaim: false,
-    motion: false,
-    superhuman: true,
-    tactiq: false,
+    axiom: true, fyxer: true, reclaim: false, motion: false, superhuman: true,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "AI email drafts",
-    axiom: true,
-    fyxer: true,
-    reclaim: false,
-    motion: false,
-    superhuman: true,
-    tactiq: false,
+    axiom: true, fyxer: true, reclaim: false, motion: false, superhuman: true,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Smart time blocking",
-    axiom: true,
-    fyxer: false,
-    reclaim: true,
-    motion: true,
-    superhuman: false,
-    tactiq: false,
+    axiom: true, fyxer: false, reclaim: true, motion: true, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
-    capability: "Focus time",
-    axiom: true,
-    fyxer: false,
-    reclaim: true,
-    motion: "Partial",
-    superhuman: false,
-    tactiq: false,
+    capability: "Focus time protection",
+    axiom: true, fyxer: false, reclaim: true, motion: "Partial", superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Task auto-scheduling",
-    axiom: true,
-    fyxer: false,
-    reclaim: true,
-    motion: true,
-    superhuman: false,
-    tactiq: false,
+    axiom: true, fyxer: false, reclaim: true, motion: true, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
+  },
+  {
+    capability: "Scheduling links",
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: true, tactiq: false, readai: false,
   },
   {
     capability: "Meeting transcription",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: true,
+    axiom: true, fyxer: "Partial", reclaim: false, motion: false, superhuman: false,
+    fireflies: true, otter: true, calendly: false, tactiq: true, readai: true,
+  },
+  {
+    capability: "AI meeting summaries",
+    axiom: true, fyxer: "Partial", reclaim: false, motion: false, superhuman: false,
+    fireflies: true, otter: true, calendly: false, tactiq: true, readai: true,
+  },
+  {
+    capability: "Meeting analytics",
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: "Partial", otter: "Partial", calendly: false, tactiq: false, readai: true,
   },
   {
     capability: "Field recording",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: "Partial",
-  },
-  {
-    capability: "Policy engine",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: false,
-  },
-  {
-    capability: "Cross-context memory",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: false,
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: "Partial", readai: false,
   },
   {
     capability: "CRM integration",
-    axiom: true,
-    fyxer: "Partial",
-    reclaim: "Partial",
-    motion: "Partial",
-    superhuman: true,
-    tactiq: "Partial",
+    axiom: true, fyxer: "Partial", reclaim: "Partial", motion: "Partial", superhuman: true,
+    fireflies: true, otter: "Partial", calendly: "Partial", tactiq: "Partial", readai: "Partial",
+  },
+  {
+    capability: "Policy engine",
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
+  },
+  {
+    capability: "Cross-context memory",
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Air-gap deployment",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: false,
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "BYO LLM",
-    axiom: true,
-    fyxer: false,
-    reclaim: false,
-    motion: false,
-    superhuman: false,
-    tactiq: false,
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Monthly cost / user",
-    axiom: "$29",
-    fyxer: "$19",
-    reclaim: "$15",
-    motion: "$34",
-    superhuman: "$30",
-    tactiq: "$16",
+    axiom: "$29", fyxer: "$22–38", reclaim: "$8–12", motion: "$29–49", superhuman: "$25–40",
+    fireflies: "$10–39", otter: "$8–20", calendly: "$10–16", tactiq: "$12", readai: "$20–30",
   },
 ];
 
+const columnKeys: ColumnKey[] = [
+  "axiom", "fyxer", "reclaim", "motion", "superhuman",
+  "fireflies", "otter", "calendly", "tactiq", "readai",
+];
+
+/* ------------------------------------------------------------------ */
+/*  Savings data (all 9 tools, from marketing doc)                     */
+/* ------------------------------------------------------------------ */
+
 interface SavingsRow {
   tool: string;
-  costPerUser: string;
-  annualFor500: string;
+  costRange: string;
+  annualRange500: string;
   axiomReplaces: string;
 }
 
 const savingsRows: SavingsRow[] = [
-  {
-    tool: "Fyxer",
-    costPerUser: "$19/mo",
-    annualFor500: "$114,000",
-    axiomReplaces: "Email triage & AI drafts",
-  },
-  {
-    tool: "Reclaim",
-    costPerUser: "$15/mo",
-    annualFor500: "$90,000",
-    axiomReplaces: "Smart time blocking & task scheduling",
-  },
-  {
-    tool: "Motion",
-    costPerUser: "$34/mo",
-    annualFor500: "$204,000",
-    axiomReplaces: "Calendar AI & task auto-scheduling",
-  },
-  {
-    tool: "Superhuman",
-    costPerUser: "$30/mo",
-    annualFor500: "$180,000",
-    axiomReplaces: "Email intelligence & CRM sync",
-  },
-  {
-    tool: "Tactiq",
-    costPerUser: "$16/mo",
-    annualFor500: "$96,000",
-    axiomReplaces: "Meeting transcription & summaries",
-  },
+  { tool: "Fyxer", costRange: "$22–$38/mo", annualRange500: "$135K–$225K", axiomReplaces: "Email intelligence + meeting notes + CRM sync" },
+  { tool: "Reclaim", costRange: "$8–$12/mo", annualRange500: "$48K–$72K", axiomReplaces: "Smart time blocking + focus protection + habits" },
+  { tool: "Motion", costRange: "$29–$49/mo", annualRange500: "$174K–$294K", axiomReplaces: "Task auto-scheduling + calendar AI" },
+  { tool: "Superhuman", costRange: "$25–$40/mo", annualRange500: "$150K–$240K", axiomReplaces: "Split inbox + AI drafts + read tracking" },
+  { tool: "Fireflies", costRange: "$10–$39/mo", annualRange500: "$60K–$234K", axiomReplaces: "Meeting recording + transcription + CRM sync" },
+  { tool: "Otter", costRange: "$8–$20/mo", annualRange500: "$48K–$120K", axiomReplaces: "Meeting transcription + notes" },
+  { tool: "Calendly", costRange: "$10–$16/mo", annualRange500: "$60K–$96K", axiomReplaces: "Scheduling links" },
+  { tool: "Tactiq", costRange: "$12/mo", annualRange500: "$72K", axiomReplaces: "Meeting transcription + summaries + exports" },
+  { tool: "Read.ai", costRange: "$20–$30/mo", annualRange500: "$120K–$180K", axiomReplaces: "Meeting analytics + engagement scoring" },
 ];
 
-const totalOtherAnnual = "$684,000";
-const axiomAnnual = "$174,000";
-const annualSavings = "$510,000";
+/* ------------------------------------------------------------------ */
+/*  Enterprise competitor comparison matrix (from marketing doc)        */
+/* ------------------------------------------------------------------ */
 
-const toolSlugs = ["fyxer", "reclaim", "motion", "superhuman", "tactiq"];
+interface EnterpriseRow {
+  capability: string;
+  axiom: string;
+  openclaw: string;
+  copilot: string;
+  cowork: string;
+}
+
+const enterpriseMatrix: EnterpriseRow[] = [
+  { capability: "Multi-tenant server deployment", axiom: "Yes", openclaw: "No", copilot: "Yes (MSFT cloud)", cowork: "No" },
+  { capability: "Policy engine (pre-execution)", axiom: "Yes", openclaw: "No", copilot: "Agent 365", cowork: "No" },
+  { capability: "Enterprise audit trail", axiom: "Yes", openclaw: "No", copilot: "Yes", cowork: "No" },
+  { capability: "Air-gapped / offline mode", axiom: "Yes", openclaw: "Partial", copilot: "No", cowork: "No" },
+  { capability: "Provider-agnostic (swap LLMs)", axiom: "Yes", openclaw: "Yes", copilot: "No", cowork: "No" },
+  { capability: "24/7 proactive heartbeat", axiom: "Yes", openclaw: "Limited", copilot: "Event-driven", cowork: "No" },
+  { capability: "Human-readable memory", axiom: "Yes", openclaw: "No", copilot: "No", cowork: "No" },
+  { capability: "Voice / telephony", axiom: "Yes", openclaw: "No", copilot: "Teams only", cowork: "No" },
+  { capability: "Skill marketplace", axiom: "Yes", openclaw: "Yes (security issues)", copilot: "Copilot Studio", cowork: "Plugins" },
+  { capability: "SSO / SAML integration", axiom: "Yes", openclaw: "No", copilot: "Yes (Azure AD)", cowork: "Enterprise plan" },
+  { capability: "Office 365 deep integration", axiom: "No", openclaw: "No", copilot: "Yes", cowork: "No" },
+  { capability: "Open source", axiom: "Planned", openclaw: "Yes", copilot: "No", cowork: "No" },
+  { capability: "Ships today", axiom: "In development", openclaw: "Yes", copilot: "Yes", cowork: "Yes" },
+  { capability: "Per-user cost (est.)", axiom: "$15–$45/mo", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
+];
+
+const enterpriseCompetitors = [
+  { slug: "openclaw", name: "OpenClaw", tagline: "Open-source AI agent with 175K+ GitHub stars", badge: "Open Source" },
+  { slug: "copilot", name: "Microsoft Copilot", tagline: "Deep Office 365 integration, enterprise-backed", badge: "Incumbent" },
+  { slug: "cowork", name: "Anthropic Cowork", tagline: "Frontier model quality for individual users", badge: "Frontier AI" },
+];
+
+const pointSolutionSlugs = [
+  { slug: "fyxer", name: "Fyxer" },
+  { slug: "reclaim", name: "Reclaim" },
+  { slug: "motion", name: "Motion" },
+  { slug: "superhuman", name: "Superhuman" },
+  { slug: "fireflies", name: "Fireflies" },
+  { slug: "otter", name: "Otter" },
+  { slug: "calendly", name: "Calendly" },
+  { slug: "tactiq", name: "Tactiq" },
+  { slug: "readai", name: "Read.ai" },
+];
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -231,6 +231,26 @@ function CellContent({ value }: { value: CellValue }) {
   return <span className="text-sm font-semibold">{value}</span>;
 }
 
+function EnterpriseCellContent({ value }: { value: string }) {
+  if (value === "Yes") {
+    return (
+      <span className="inline-flex items-center justify-center rounded-full bg-success/10 p-1">
+        <Check className="size-4 text-success" strokeWidth={3} />
+      </span>
+    );
+  }
+  if (value === "No") {
+    return (
+      <span className="inline-flex items-center justify-center rounded-full bg-red-500/10 p-1">
+        <X className="size-4 text-red-500" strokeWidth={3} />
+      </span>
+    );
+  }
+  return (
+    <span className="text-xs font-medium text-muted-text">{value}</span>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -249,43 +269,132 @@ export default function ComparePage() {
             Replace your entire AI&nbsp;stack.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-            Most teams juggle five or more point-solution AI tools -- each with its
+            Most teams juggle nine or more point-solution AI tools &mdash; each with its
             own login, billing, and data silo. AXIOM consolidates email, calendar,
             meetings, transcription, and task management into one governed platform
-            and saves the average 500-person org over half a million dollars a year.
+            and saves the average 500-person org{" "}
+            <span className="text-success font-semibold">$837K&ndash;$1.53M per year</span>.
           </p>
         </div>
       </section>
 
-      {/* ---- Comparison Matrix ------------------------------------ */}
+      {/* ---- Enterprise Competitor Comparisons ---------------------- */}
       <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-12 text-center">
+            <Badge className="mb-4 bg-navy/10 text-navy border-navy/20">
+              Enterprise Platforms
+            </Badge>
             <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">
-              Feature-by-feature comparison
+              AXIOM vs enterprise competitors
             </h2>
             <p className="mt-4 text-muted-text">
-              See what each tool covers -- and where AXIOM fills every gap.
+              How AXIOM compares to the three platforms enterprise buyers evaluate most.
             </p>
           </div>
 
-          {/* Scrollable wrapper for mobile */}
-          <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-            <table className="w-full min-w-[800px] text-left text-sm">
+          <div className="grid gap-4 md:grid-cols-3">
+            {enterpriseCompetitors.map((comp) => (
+              <Link
+                key={comp.slug}
+                href={`/compare/${comp.slug}`}
+                className="group relative flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-accent-blue/40 hover:shadow-md"
+              >
+                <Badge className="mb-3 w-fit bg-accent-blue/10 text-accent-blue border-accent-blue/20 text-xs">
+                  {comp.badge}
+                </Badge>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-muted-text">AXIOM vs</p>
+                  <p className="text-xl font-bold text-navy">{comp.name}</p>
+                  <p className="mt-2 text-sm text-muted-text leading-relaxed">
+                    {comp.tagline}
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center text-sm font-medium text-accent-blue">
+                  Read comparison
+                  <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Enterprise comparison matrix */}
+          <div className="mt-16">
+            <h3 className="mb-6 text-center text-2xl font-bold text-navy">
+              Enterprise platform comparison matrix
+            </h3>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+              <table className="w-full min-w-[700px] text-left text-sm">
+                <thead>
+                  <tr className="bg-navy text-white">
+                    <th className="px-5 py-4 font-semibold min-w-[200px]">Capability</th>
+                    <th className="bg-accent-blue px-5 py-4 text-center font-semibold">AXIOM</th>
+                    <th className="px-5 py-4 text-center font-semibold">OpenClaw</th>
+                    <th className="px-5 py-4 text-center font-semibold">Copilot</th>
+                    <th className="px-5 py-4 text-center font-semibold">Cowork</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {enterpriseMatrix.map((row, idx) => (
+                    <tr
+                      key={row.capability}
+                      className={idx % 2 === 0 ? "bg-white" : "bg-surface/60"}
+                    >
+                      <td className="px-5 py-3.5 font-medium text-body-text">
+                        {row.capability}
+                      </td>
+                      <td className="bg-accent-blue/5 border-x border-accent-blue/10 px-5 py-3.5 text-center">
+                        <EnterpriseCellContent value={row.axiom} />
+                      </td>
+                      <td className="px-5 py-3.5 text-center">
+                        <EnterpriseCellContent value={row.openclaw} />
+                      </td>
+                      <td className="px-5 py-3.5 text-center">
+                        <EnterpriseCellContent value={row.copilot} />
+                      </td>
+                      <td className="px-5 py-3.5 text-center">
+                        <EnterpriseCellContent value={row.cowork} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---- Point-Solution Comparison Matrix ----------------------- */}
+      <section className="bg-surface py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-12 text-center">
+            <Badge className="mb-4 bg-warning/10 text-warning border-warning/20">
+              Point Solutions
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+              Feature-by-feature: AXIOM vs 9 tools
+            </h2>
+            <p className="mt-4 text-muted-text">
+              See what each single-purpose tool covers &mdash; and where AXIOM fills every gap.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+            <table className="w-full min-w-[1200px] text-left text-sm">
               <thead>
                 <tr className="sticky top-0 z-10 bg-navy text-white">
                   {columns.map((col, i) => (
                     <th
                       key={col}
-                      className={`whitespace-nowrap px-5 py-4 font-semibold ${
+                      className={`whitespace-nowrap px-4 py-4 font-semibold text-xs ${
                         i === 0
-                          ? "sticky left-0 z-20 bg-navy min-w-[180px]"
+                          ? "sticky left-0 z-20 bg-navy min-w-[160px]"
                           : "text-center"
                       } ${i === 1 ? "bg-accent-blue text-white" : ""}`}
                     >
                       {col}
                       {i === 1 && (
-                        <span className="ml-2 inline-block rounded bg-white/20 px-1.5 py-0.5 text-[10px] uppercase tracking-wider">
+                        <span className="ml-1 inline-block rounded bg-white/20 px-1 py-0.5 text-[9px] uppercase tracking-wider">
                           All-in-one
                         </span>
                       )}
@@ -295,22 +404,14 @@ export default function ComparePage() {
               </thead>
               <tbody>
                 {matrixRows.map((row, idx) => {
-                  const cells: CellValue[] = [
-                    row.axiom,
-                    row.fyxer,
-                    row.reclaim,
-                    row.motion,
-                    row.superhuman,
-                    row.tactiq,
-                  ];
+                  const cells = columnKeys.map((key) => row[key]);
                   return (
                     <tr
                       key={row.capability}
                       className={idx % 2 === 0 ? "bg-white" : "bg-surface/60"}
                     >
-                      {/* Sticky capability column */}
                       <td
-                        className={`sticky left-0 z-10 whitespace-nowrap px-5 py-3.5 font-medium text-body-text ${
+                        className={`sticky left-0 z-10 whitespace-nowrap px-4 py-3 font-medium text-body-text text-xs ${
                           idx % 2 === 0 ? "bg-white" : "bg-surface/60"
                         }`}
                       >
@@ -319,7 +420,7 @@ export default function ComparePage() {
                       {cells.map((cell, ci) => (
                         <td
                           key={ci}
-                          className={`px-5 py-3.5 text-center ${
+                          className={`px-4 py-3 text-center ${
                             ci === 0
                               ? "bg-accent-blue/5 border-x border-accent-blue/10"
                               : ""
@@ -337,32 +438,26 @@ export default function ComparePage() {
         </div>
       </section>
 
-      {/* ---- Savings Summary -------------------------------------- */}
-      <section className="bg-surface py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      {/* ---- Savings Summary ---------------------------------------- */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">
               Savings at a glance
             </h2>
             <p className="mt-4 text-muted-text">
-              Annual cost comparison for a 500-person organization.
+              Annual cost comparison for a 500-person organization replacing all nine tools.
             </p>
           </div>
 
           <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-            <table className="w-full min-w-[640px] text-left text-sm">
+            <table className="w-full min-w-[700px] text-left text-sm">
               <thead>
                 <tr className="border-b border-gray-200 bg-navy/5">
                   <th className="px-5 py-3.5 font-semibold text-navy">Tool</th>
-                  <th className="px-5 py-3.5 font-semibold text-navy">
-                    Cost / user / mo
-                  </th>
-                  <th className="px-5 py-3.5 font-semibold text-navy">
-                    Annual (500 users)
-                  </th>
-                  <th className="px-5 py-3.5 font-semibold text-navy">
-                    AXIOM replaces
-                  </th>
+                  <th className="px-5 py-3.5 font-semibold text-navy">Cost range / user</th>
+                  <th className="px-5 py-3.5 font-semibold text-navy">Annual (500 users)</th>
+                  <th className="px-5 py-3.5 font-semibold text-navy">AXIOM replaces</th>
                 </tr>
               </thead>
               <tbody>
@@ -373,51 +468,35 @@ export default function ComparePage() {
                       idx % 2 !== 0 ? "bg-surface/40" : ""
                     }`}
                   >
-                    <td className="px-5 py-3.5 font-medium text-body-text">
-                      {row.tool}
-                    </td>
-                    <td className="px-5 py-3.5 text-body-text">{row.costPerUser}</td>
-                    <td className="px-5 py-3.5 text-body-text">{row.annualFor500}</td>
+                    <td className="px-5 py-3.5 font-medium text-body-text">{row.tool}</td>
+                    <td className="px-5 py-3.5 text-body-text">{row.costRange}</td>
+                    <td className="px-5 py-3.5 text-body-text">{row.annualRange500}</td>
                     <td className="px-5 py-3.5 text-muted-text">{row.axiomReplaces}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr className="border-t-2 border-navy/20 bg-navy/5">
-                  <td className="px-5 py-4 font-bold text-navy">
-                    Combined total
-                  </td>
+                  <td className="px-5 py-4 font-bold text-navy">Combined total</td>
                   <td className="px-5 py-4">
                     <Minus className="size-4 text-muted-text" />
                   </td>
-                  <td className="px-5 py-4 font-bold text-red-600">
-                    {totalOtherAnnual}
-                  </td>
+                  <td className="px-5 py-4 font-bold text-red-600">$837K&ndash;$1.53M</td>
                   <td className="px-5 py-4" />
                 </tr>
                 <tr className="bg-accent-blue/5">
-                  <td className="px-5 py-4 font-bold text-accent-blue">
-                    AXIOM (replaces all)
-                  </td>
-                  <td className="px-5 py-4 font-semibold text-accent-blue">
-                    $29/mo
-                  </td>
-                  <td className="px-5 py-4 font-bold text-accent-blue">
-                    {axiomAnnual}
-                  </td>
+                  <td className="px-5 py-4 font-bold text-accent-blue">AXIOM (replaces all)</td>
+                  <td className="px-5 py-4 font-semibold text-accent-blue">$29/mo</td>
+                  <td className="px-5 py-4 font-bold text-accent-blue">$174,000</td>
                   <td className="px-5 py-4" />
                 </tr>
                 <tr className="bg-success/5">
-                  <td className="px-5 py-4 font-bold text-success">
-                    You save
-                  </td>
+                  <td className="px-5 py-4 font-bold text-success">You save</td>
                   <td className="px-5 py-4" />
                   <td className="px-5 py-4 text-lg font-extrabold text-success">
-                    {annualSavings}
+                    $663K&ndash;$1.36M
                   </td>
-                  <td className="px-5 py-4 text-sm text-success">
-                    per year
-                  </td>
+                  <td className="px-5 py-4 text-sm text-success">per year</td>
                 </tr>
               </tfoot>
             </table>
@@ -425,9 +504,9 @@ export default function ComparePage() {
         </div>
       </section>
 
-      {/* ---- Individual Comparison Links -------------------------- */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      {/* ---- Head-to-head Links ------------------------------------- */}
+      <section className="bg-surface py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">
               Head-to-head comparisons
@@ -438,37 +517,32 @@ export default function ComparePage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {toolSlugs.map((slug) => {
-              const name = slug.charAt(0).toUpperCase() + slug.slice(1);
-              return (
-                <Link
-                  key={slug}
-                  href={`/compare/${slug}`}
-                  className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:border-accent-blue/40 hover:shadow-md"
-                >
-                  <div>
-                    <p className="text-sm font-medium text-muted-text">
-                      AXIOM vs
-                    </p>
-                    <p className="text-lg font-bold text-navy">{name}</p>
-                  </div>
-                  <ArrowRight className="size-5 text-muted-text transition-transform group-hover:translate-x-1 group-hover:text-accent-blue" />
-                </Link>
-              );
-            })}
+            {pointSolutionSlugs.map((tool) => (
+              <Link
+                key={tool.slug}
+                href={`/compare/${tool.slug}`}
+                className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all hover:border-accent-blue/40 hover:shadow-md"
+              >
+                <div>
+                  <p className="text-sm font-medium text-muted-text">AXIOM vs</p>
+                  <p className="text-lg font-bold text-navy">{tool.name}</p>
+                </div>
+                <ArrowRight className="size-5 text-muted-text transition-transform group-hover:translate-x-1 group-hover:text-accent-blue" />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ---- CTA Banner ------------------------------------------- */}
+      {/* ---- CTA Banner --------------------------------------------- */}
       <section className="bg-navy py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Ready to consolidate your AI&nbsp;stack?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            Replace five subscriptions with one platform. Start a free pilot in
-            under ten minutes -- no credit card required.
+            Replace nine subscriptions with one platform. Start a free pilot in
+            under ten minutes &mdash; no credit card required.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -476,7 +550,7 @@ export default function ComparePage() {
               size="lg"
               className="bg-accent-blue text-white hover:bg-accent-blue/90"
             >
-              <Link href="/contact">
+              <Link href="/signup">
                 Start Free Pilot
                 <ArrowRight className="ml-2 size-4" />
               </Link>

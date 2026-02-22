@@ -52,7 +52,7 @@ export default function AcceptableUsePage() {
         <h2>5. Reporting</h2>
         <p>
           Report violations to{" "}
-          <a href="mailto:abuse@axiom-ops.com">abuse@axiom-ops.com</a>.
+          <a href="mailto:abuse@AxiomAssistant.ai">abuse@AxiomAssistant.ai</a>.
         </p>
       </article>
     </div>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Linkedin, Twitter, Github } from "lucide-react";
 
 const productLinks = [
   { label: "Features", href: "/features" },
@@ -7,6 +6,7 @@ const productLinks = [
   { label: "Compare", href: "/compare" },
   { label: "Enterprise", href: "/enterprise" },
   { label: "What's New", href: "/changelog" },
+  { label: "Security", href: "/security" },
 ];
 
 const resourceLinks = [
@@ -81,6 +81,7 @@ export function Footer() {
               <p className="text-sm font-medium text-navy mb-2">
                 Stay updated
               </p>
+              <p className="text-xs text-muted-text mb-2">Product updates, AI ops insights, and deployment guides. No spam.</p>
               <form className="flex gap-2">
                 <input
                   type="email"
@@ -95,36 +96,6 @@ export function Footer() {
                   Subscribe
                 </button>
               </form>
-            </div>
-            {/* Social */}
-            <div className="flex gap-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-text hover:text-accent-blue transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-text hover:text-accent-blue transition-colors"
-                aria-label="X / Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-text hover:text-accent-blue transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
             </div>
           </div>
 

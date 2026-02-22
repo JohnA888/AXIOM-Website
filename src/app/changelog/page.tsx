@@ -19,7 +19,7 @@ const releases = [
       "Field recording ingestion from Bee, Plaud, and other devices",
       "Policy Engine with approval workflows and spend limits",
       "Cross-context memory system",
-      "37 built-in skills",
+      "50 built-in skills",
       "CRM integration (Salesforce, HubSpot, Pipedrive)",
       "Project management integration (Jira, Linear, Asana)",
       "OpenRouter integration for bring-your-own LLM",

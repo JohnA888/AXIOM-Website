@@ -315,14 +315,14 @@ const FEATURES: FeatureSection[] = [
     icon: Zap,
     headline: "Skills & Workflows",
     description:
-      "Automate anything. AXIOM ships with 37 built-in skills and a visual workflow builder. Built on the Model Context Protocol (MCP), skills are policy-wrapped and auditable by design.",
+      "Automate anything. AXIOM ships with 50 built-in skills and a visual workflow builder. Built on the Model Context Protocol (MCP), skills are policy-wrapped and auditable by design.",
     whyItMatters:
       "Unlike isolated automation tools, every AXIOM skill runs through the Policy Engine and logs to the audit trail. Skills are built on MCP, so you can import plugins from other ecosystems (Copilot, Cowork, CQ), wrap them with AXIOM's governance layer, and run them with full organizational context from the Memory System.",
     mockupLabel: "Workflow Builder Canvas",
     capabilities: [
       {
         icon: Zap,
-        title: "37 Built-in Skills",
+        title: "50 Built-in Skills",
         description: "Pre-built automations for common tasks -- from data extraction to report generation.",
       },
       {

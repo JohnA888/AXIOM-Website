@@ -61,7 +61,7 @@ export default function PrivacyPage() {
         <p>
           You have the right to access, correct, delete, or export your data.
           Contact us at{" "}
-          <a href="mailto:privacy@axiom-ops.com">privacy@axiom-ops.com</a> to
+          <a href="mailto:privacy@AxiomAssistant.ai">privacy@AxiomAssistant.ai</a> to
           exercise these rights.
         </p>
 
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
         <h2>9. Contact</h2>
         <p>
           For privacy inquiries, contact{" "}
-          <a href="mailto:privacy@axiom-ops.com">privacy@axiom-ops.com</a>.
+          <a href="mailto:privacy@AxiomAssistant.ai">privacy@AxiomAssistant.ai</a>.
         </p>
       </article>
     </div>

@@ -82,7 +82,7 @@ export default function TermsPage() {
         <h2>10. Contact</h2>
         <p>
           For questions about these Terms, contact us at{" "}
-          <a href="mailto:legal@axiom-ops.com">legal@axiom-ops.com</a>.
+          <a href="mailto:legal@AxiomAssistant.ai">legal@AxiomAssistant.ai</a>.
         </p>
       </article>
     </div>

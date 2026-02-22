@@ -47,7 +47,7 @@ export default function CookiePolicyPage() {
         <h2>4. Contact</h2>
         <p>
           For questions about our cookie practices, contact{" "}
-          <a href="mailto:privacy@axiom-ops.com">privacy@axiom-ops.com</a>.
+          <a href="mailto:privacy@AxiomAssistant.ai">privacy@AxiomAssistant.ai</a>.
         </p>
       </article>
     </div>

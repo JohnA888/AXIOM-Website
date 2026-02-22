@@ -13,6 +13,11 @@ import {
   Target,
   Users,
   User,
+  Rocket,
+  Clock,
+  Monitor,
+  Globe,
+  Cpu,
 } from "lucide-react";
 
 const values = [
@@ -44,11 +49,6 @@ const values = [
 
 const teamMembers = [
   { name: "John Arnott", title: "CEO & Co-Founder" },
-  { name: "Team Member", title: "CTO & Co-Founder" },
-  { name: "Team Member", title: "VP of Engineering" },
-  { name: "Team Member", title: "VP of Product" },
-  { name: "Team Member", title: "Head of AI Research" },
-  { name: "Team Member", title: "Head of Sales" },
 ];
 
 export function AboutContent() {
@@ -136,7 +136,7 @@ export function AboutContent() {
                     </p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-accent-blue">37+</p>
+                    <p className="text-2xl font-bold text-accent-blue">50+</p>
                     <p className="text-sm text-muted-text mt-1">
                       AI Skills Built-In
                     </p>
@@ -219,6 +219,88 @@ export function AboutContent() {
                 </div>
                 <h3 className="text-lg font-bold text-navy">{member.name}</h3>
                 <p className="mt-1 text-sm text-muted-text">{member.title}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* We're Growing Card */}
+          <div className="mt-12 mx-auto max-w-2xl animate-fade-up">
+            <div className="rounded-2xl border border-accent-blue/20 bg-accent-blue/5 p-8 text-center">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue">
+                <Rocket className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-2">
+                We&apos;re Growing
+              </h3>
+              <p className="text-muted-text mb-6">
+                We&apos;re building something ambitious. If you&apos;re passionate about AI infrastructure, we want to hear from you.
+              </p>
+              <Link
+                href="/careers"
+                className="inline-flex items-center gap-2 rounded-full bg-accent-blue px-6 py-3 text-sm font-medium text-white hover:bg-accent-blue/90 transition-colors"
+              >
+                View Open Positions <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We're Still Building Section */}
+      <section className="py-20 lg:py-28 bg-surface">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <Badge className="mb-4 bg-warning/10 text-warning border-warning/20 hover:bg-warning/10">
+              Honest Limitations
+            </Badge>
+            <h2 className="text-3xl font-bold text-navy sm:text-4xl">
+              What We&apos;re Still Building
+            </h2>
+            <p className="mt-4 text-muted-text text-lg">
+              We believe in transparency. Here&apos;s what you should know before evaluating AXIOM.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            {[
+              {
+                icon: Clock,
+                title: "Not Yet Shipping",
+                description:
+                  "AXIOM is in active development. Organizations needing a solution today should evaluate alternatives. We're targeting Q3-Q4 2026.",
+              },
+              {
+                icon: Monitor,
+                title: "No Deep Office Integration",
+                description:
+                  "We operate alongside Office rather than inside it. This is by design \u2014 deep integration would create vendor lock-in.",
+              },
+              {
+                icon: Globe,
+                title: "Smaller Ecosystem",
+                description:
+                  "Our SkillForge launches with the platform. But our skill import system lets you bring Cowork plugins, Copilot Studio agents, and Claude Code skills into AXIOM.",
+              },
+              {
+                icon: Cpu,
+                title: "Model Quality Varies",
+                description:
+                  "Provider independence means quality depends on your choice. Local 8B models won't match Claude Opus \u2014 but you can route to Anthropic's API for complex tasks.",
+              },
+            ].map((item, index) => (
+              <div
+                key={item.title}
+                className="group rounded-2xl bg-white p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-warning/20 transition-all duration-300 animate-fade-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-warning/10 text-warning group-hover:bg-warning group-hover:text-white transition-colors duration-300">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-navy mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-text leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>

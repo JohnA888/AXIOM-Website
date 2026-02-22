@@ -38,19 +38,19 @@ const toolData: Record<string, ToolInfo> = {
     tagline: "AI email triage that goes further.",
     description:
       "Fyxer automates email sorting and drafting. AXIOM does the same -- plus calendar, meetings, tasks, transcription, and policy governance in a single platform.",
-    costPerUser: "$19/mo",
+    costPerUser: "$22–$38/mo",
     axiomCost: "$29/mo",
     features: [
       { feature: "Email triage & prioritisation", axiom: true, competitor: true },
       { feature: "AI email drafts", axiom: true, competitor: true },
       { feature: "Email thread summarisation", axiom: true, competitor: true },
+      { feature: "Meeting notes & action items", axiom: true, competitor: true },
+      { feature: "CRM auto-logging", axiom: true, competitor: true },
       { feature: "Smart time blocking", axiom: true, competitor: false },
       { feature: "Task auto-scheduling", axiom: true, competitor: false },
-      { feature: "Meeting transcription", axiom: true, competitor: false },
       { feature: "Field recording", axiom: true, competitor: false },
       { feature: "Policy engine", axiom: true, competitor: false },
       { feature: "Cross-context memory", axiom: true, competitor: false },
-      { feature: "CRM integration", axiom: true, competitor: "Partial" },
       { feature: "Air-gap deployment", axiom: true, competitor: false },
       { feature: "BYO LLM", axiom: true, competitor: false },
     ],
@@ -71,7 +71,7 @@ const toolData: Record<string, ToolInfo> = {
     tagline: "Smart scheduling, plus everything else.",
     description:
       "Reclaim excels at calendar time-blocking and habits. AXIOM matches those capabilities and adds email intelligence, transcription, policy governance, and unified AI memory.",
-    costPerUser: "$15/mo",
+    costPerUser: "$8–$12/mo",
     axiomCost: "$29/mo",
     features: [
       { feature: "Smart time blocking", axiom: true, competitor: true },
@@ -105,7 +105,7 @@ const toolData: Record<string, ToolInfo> = {
     tagline: "Project AI meets full operations AI.",
     description:
       "Motion combines calendar AI with project management. AXIOM covers all of that and layers on email intelligence, meeting transcription, policy governance, and enterprise deployment options.",
-    costPerUser: "$34/mo",
+    costPerUser: "$29–$49/mo",
     axiomCost: "$29/mo",
     features: [
       { feature: "Calendar AI scheduling", axiom: true, competitor: true },
@@ -139,7 +139,7 @@ const toolData: Record<string, ToolInfo> = {
     tagline: "Enterprise email, without the ceiling.",
     description:
       "Superhuman is a fast, polished email client with AI features. AXIOM matches its email intelligence and adds calendar management, meeting transcription, task scheduling, and enterprise-grade governance.",
-    costPerUser: "$30/mo",
+    costPerUser: "$25–$40/mo",
     axiomCost: "$29/mo",
     features: [
       { feature: "Email triage & prioritisation", axiom: true, competitor: true },
@@ -173,7 +173,7 @@ const toolData: Record<string, ToolInfo> = {
     tagline: "Transcription is just the beginning.",
     description:
       "Tactiq captures meeting transcripts and generates summaries. AXIOM provides the same transcription quality and adds email, calendar, task management, and enterprise policy governance in one platform.",
-    costPerUser: "$16/mo",
+    costPerUser: "$12/mo",
     axiomCost: "$29/mo",
     features: [
       { feature: "Meeting transcription", axiom: true, competitor: true },
@@ -200,6 +200,142 @@ const toolData: Record<string, ToolInfo> = {
     ],
     migrationNote:
       "AXIOM connects to Zoom, Google Meet, and Teams on day one. Past Tactiq transcripts can be imported in bulk.",
+  },
+  fireflies: {
+    name: "Fireflies",
+    slug: "fireflies",
+    tagline: "Meeting intelligence at enterprise scale.",
+    description:
+      "Fireflies records, transcribes, and summarises meetings with CRM integration. AXIOM provides the same capabilities and adds email intelligence, calendar management, task scheduling, and enterprise policy governance.",
+    costPerUser: "$10–$39/mo",
+    axiomCost: "$29/mo",
+    features: [
+      { feature: "Meeting recording", axiom: true, competitor: true },
+      { feature: "AI transcription", axiom: true, competitor: true },
+      { feature: "Meeting summaries", axiom: true, competitor: true },
+      { feature: "Action item extraction", axiom: true, competitor: true },
+      { feature: "CRM integration", axiom: true, competitor: true },
+      { feature: "Conversation analytics", axiom: true, competitor: "Partial" },
+      { feature: "Email triage", axiom: true, competitor: false },
+      { feature: "AI email drafts", axiom: true, competitor: false },
+      { feature: "Smart time blocking", axiom: true, competitor: false },
+      { feature: "Field recording", axiom: true, competitor: false },
+      { feature: "Policy engine", axiom: true, competitor: false },
+      { feature: "Cross-context memory", axiom: true, competitor: false },
+      { feature: "Air-gap deployment", axiom: true, competitor: false },
+    ],
+    axiomAdds: [
+      "Full email intelligence — triage, AI drafts, and thread summarisation",
+      "Smart calendar time-blocking and focus-time protection",
+      "Hardware field-recording ingestion (Bee, Plaud, and more)",
+      "Enterprise policy engine for compliance guardrails",
+      "Cross-context memory linking meetings to emails and tasks",
+      "Air-gapped deployment for regulated industries",
+    ],
+    migrationNote:
+      "AXIOM connects to the same meeting platforms Fireflies supports. Historical transcripts can be imported to maintain continuity.",
+  },
+  otter: {
+    name: "Otter",
+    slug: "otter",
+    tagline: "Transcription plus the rest of your workflow.",
+    description:
+      "Otter.ai provides real-time meeting transcription and notes. AXIOM matches Otter's transcription quality and adds email intelligence, calendar management, task scheduling, and enterprise governance in a single platform.",
+    costPerUser: "$8–$20/mo",
+    axiomCost: "$29/mo",
+    features: [
+      { feature: "Real-time transcription", axiom: true, competitor: true },
+      { feature: "AI meeting summaries", axiom: true, competitor: true },
+      { feature: "Action item extraction", axiom: true, competitor: true },
+      { feature: "Speaker identification", axiom: true, competitor: true },
+      { feature: "Search across transcripts", axiom: true, competitor: true },
+      { feature: "Email triage", axiom: true, competitor: false },
+      { feature: "AI email drafts", axiom: true, competitor: false },
+      { feature: "Smart time blocking", axiom: true, competitor: false },
+      { feature: "Task auto-scheduling", axiom: true, competitor: false },
+      { feature: "Field recording", axiom: true, competitor: false },
+      { feature: "Policy engine", axiom: true, competitor: false },
+      { feature: "Cross-context memory", axiom: true, competitor: false },
+      { feature: "Air-gap deployment", axiom: true, competitor: false },
+    ],
+    axiomAdds: [
+      "Full email intelligence — triage, AI drafts, and follow-up tracking",
+      "Smart calendar optimisation with focus-time protection",
+      "Task auto-scheduling from meeting action items",
+      "Enterprise policy engine for compliance guardrails",
+      "Unified memory connecting transcripts to emails and tasks",
+      "Air-gapped and BYO-LLM deployment options",
+    ],
+    migrationNote:
+      "AXIOM connects to Zoom, Google Meet, and Teams directly. Otter transcripts can be imported to preserve your meeting history.",
+  },
+  calendly: {
+    name: "Calendly",
+    slug: "calendly",
+    tagline: "Scheduling links, built into your AI platform.",
+    description:
+      "Calendly simplifies meeting scheduling with shareable booking links. AXIOM includes equivalent scheduling-link functionality as a built-in skill, plus email intelligence, meeting transcription, and enterprise governance.",
+    costPerUser: "$10–$16/mo",
+    axiomCost: "$29/mo",
+    features: [
+      { feature: "Scheduling links", axiom: true, competitor: true },
+      { feature: "Calendar availability sharing", axiom: true, competitor: true },
+      { feature: "Meeting type configuration", axiom: true, competitor: true },
+      { feature: "Team scheduling", axiom: true, competitor: true },
+      { feature: "Reminders & follow-ups", axiom: true, competitor: true },
+      { feature: "Email triage", axiom: true, competitor: false },
+      { feature: "AI email drafts", axiom: true, competitor: false },
+      { feature: "Smart time blocking", axiom: true, competitor: false },
+      { feature: "Meeting transcription", axiom: true, competitor: false },
+      { feature: "Task auto-scheduling", axiom: true, competitor: false },
+      { feature: "Policy engine", axiom: true, competitor: false },
+      { feature: "Cross-context memory", axiom: true, competitor: false },
+      { feature: "Air-gap deployment", axiom: true, competitor: false },
+    ],
+    axiomAdds: [
+      "Full email intelligence — triage, drafts, and follow-up tracking",
+      "Smart calendar time-blocking that protects your focus time",
+      "Meeting transcription and AI-generated summaries",
+      "Automatic task creation from meetings and emails",
+      "Enterprise policy engine with compliance guardrails",
+      "Cross-context memory connecting scheduling to your full workflow",
+    ],
+    migrationNote:
+      "AXIOM generates scheduling links directly in email replies — no separate tool needed. Your existing calendar connections carry over automatically.",
+  },
+  readai: {
+    name: "Read.ai",
+    slug: "readai",
+    tagline: "Meeting analytics, integrated into everything else.",
+    description:
+      "Read.ai provides meeting analytics, engagement scoring, and AI summaries. AXIOM delivers equivalent meeting intelligence and adds email management, calendar optimisation, task scheduling, and enterprise governance.",
+    costPerUser: "$20–$30/mo",
+    axiomCost: "$29/mo",
+    features: [
+      { feature: "Meeting summaries", axiom: true, competitor: true },
+      { feature: "Engagement scoring", axiom: true, competitor: true },
+      { feature: "Sentiment analysis", axiom: true, competitor: true },
+      { feature: "Action item extraction", axiom: true, competitor: true },
+      { feature: "Meeting analytics dashboard", axiom: true, competitor: true },
+      { feature: "Email triage", axiom: true, competitor: false },
+      { feature: "AI email drafts", axiom: true, competitor: false },
+      { feature: "Smart time blocking", axiom: true, competitor: false },
+      { feature: "Task auto-scheduling", axiom: true, competitor: false },
+      { feature: "Field recording", axiom: true, competitor: false },
+      { feature: "Policy engine", axiom: true, competitor: false },
+      { feature: "Cross-context memory", axiom: true, competitor: false },
+      { feature: "Air-gap deployment", axiom: true, competitor: false },
+    ],
+    axiomAdds: [
+      "Full email intelligence — triage, AI drafts, and follow-up tracking",
+      "Smart calendar optimisation with focus-time protection",
+      "Hardware field-recording support (Bee, Plaud devices)",
+      "Enterprise policy engine for compliance guardrails",
+      "Unified memory connecting meeting insights to emails and tasks",
+      "Air-gapped and BYO-LLM deployment for data sovereignty",
+    ],
+    migrationNote:
+      "AXIOM connects to the same meeting platforms as Read.ai. Meeting analytics and insights are available from day one with richer cross-context connections.",
   },
 };
 
@@ -422,7 +558,7 @@ export default async function ToolComparisonPage({
               <ul className="mt-6 space-y-2.5 text-sm text-body-text">
                 <li className="flex items-center gap-2">
                   <Check className="size-4 text-success" />
-                  Replaces 5+ tools in one platform
+                  Replaces 9+ tools in one platform
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="size-4 text-success" />
@@ -443,22 +579,17 @@ export default async function ToolComparisonPage({
             </p>
             <p className="mt-1 text-3xl font-extrabold text-success">
               {(() => {
-                const competitorMonthly = parseInt(
-                  tool.costPerUser.replace(/\D/g, ""),
-                  10
-                );
-                const axiomMonthly = parseInt(
-                  tool.axiomCost.replace(/\D/g, ""),
-                  10
-                );
-                const diff = (competitorMonthly - axiomMonthly) * 500 * 12;
+                const nums = tool.costPerUser.match(/\d+/g)?.map(Number) ?? [];
+                const competitorHigh = nums[nums.length - 1] ?? 0;
+                const axiomMonthly = 29;
+                const diff = (competitorHigh - axiomMonthly) * 500 * 12;
                 if (diff > 0)
-                  return `$${diff.toLocaleString()}/yr`;
-                return "comparable cost -- with 5x the features";
+                  return `up to $${diff.toLocaleString()}/yr`;
+                return "comparable cost — with 9x the features";
               })()}
             </p>
             <p className="mt-1 text-xs text-muted-text">
-              And that is before you cancel the other four tools AXIOM also replaces.
+              And that is before you cancel the other eight tools AXIOM also replaces.
             </p>
           </div>
         </div>

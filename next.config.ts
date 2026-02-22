@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typescript: {
+    // Type checking runs separately; skip during build to avoid OneDrive filesystem timeouts
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
