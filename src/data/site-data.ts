@@ -252,14 +252,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "2",
-    title: "How a 500-Person Law Firm Replaced 11 Tools with AXIOM",
+    title: "How a 500-Person Law Firm Replaced 9 Tools with AXIOM",
     excerpt:
       "Goldstein & Associates was spending $1.2M annually on disconnected AI tools. Within 90 days of deploying AXIOM, they consolidated to a single platform and cut costs by 68%.",
     category: "Use Cases",
     date: "Feb 12, 2026",
     readTime: "8 min read",
     slug: "law-firm-case-study",
-    body: "When Goldstein & Associates audited their AI tool spending, the numbers were staggering: $1.2 million per year across 11 separate subscriptions. Each tool had its own login, its own data silo, and its own security posture. Their IT team spent more time managing integrations than the tools saved in productivity. The firm needed a single platform that could handle email triage, calendar coordination, meeting transcription, and document preparation — all under one governance framework that met their compliance requirements for attorney-client privilege.\n\nAXIOM's deployment took 12 days. The Policy Engine was configured with firm-specific rules: attorney-client privileged calls are never transcribed, external emails over 500 words require partner review, and all AI actions are logged to an immutable audit trail exportable for regulatory review. Within 90 days, the firm had eliminated 9 of their 11 tool subscriptions, reduced their annual AI spend by 68%, and — most importantly — given every attorney a proactive AI operations partner that prepared meeting briefs, tracked deadlines, and drafted follow-up emails automatically.",
+    body: "When Goldstein & Associates audited their AI tool spending, the numbers were staggering: $1.2 million per year across 9 separate subscriptions. Each tool had its own login, its own data silo, and its own security posture. Their IT team spent more time managing integrations than the tools saved in productivity. The firm needed a single platform that could handle email triage, calendar coordination, meeting transcription, and document preparation — all under one governance framework that met their compliance requirements for attorney-client privilege.\n\nAXIOM's deployment took 12 days. The Policy Engine was configured with firm-specific rules: attorney-client privileged calls are never transcribed, external emails over 500 words require partner review, and all AI actions are logged to an immutable audit trail exportable for regulatory review. Within 90 days, the firm had consolidated all 9 tool subscriptions into AXIOM, reduced their annual AI spend by 68%, and — most importantly — given every attorney a proactive AI operations partner that prepared meeting briefs, tracked deadlines, and drafted follow-up emails automatically.",
   },
   {
     id: "3",

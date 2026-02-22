@@ -51,13 +51,238 @@ function useInView(threshold = 0.15) {
 /*  DATA                                                               */
 /* ================================================================== */
 
-const trustPartners = [
-  "OpenRouter",
-  "Anthropic",
-  "Deepgram",
-  "Twilio",
-  "Google",
-  "Microsoft",
+/* ------------------------------------------------------------------ */
+/*  Partner Logo SVG Components                                        */
+/* ------------------------------------------------------------------ */
+
+function OpenRouterLogo() {
+  return (
+    <svg
+      width="120"
+      height="36"
+      viewBox="0 0 120 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="OpenRouter"
+    >
+      {/* O shape */}
+      <path
+        d="M8 8C8 4.686 10.686 2 14 2h4c3.314 0 6 2.686 6 6v4c0 3.314-2.686 6-6 6h-4c-3.314 0-6-2.686-6-6V8Z"
+        stroke="#6366F1"
+        strokeWidth="2.5"
+        fill="none"
+      />
+      {/* R shape */}
+      <path
+        d="M28 2h6c3.314 0 6 2.686 6 6v0c0 3.314-2.686 6-6 6h-6V2Zm0 12 7 8"
+        stroke="#6366F1"
+        strokeWidth="2.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Circuit accent line */}
+      <path
+        d="M42 10h8m0 0 3-3m-3 3 3 3"
+        stroke="#6366F1"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.6"
+      />
+      {/* Text */}
+      <text
+        x="8"
+        y="33"
+        fontFamily="system-ui, sans-serif"
+        fontSize="10"
+        fontWeight="600"
+        fill="#6366F1"
+        letterSpacing="0.5"
+      >
+        OpenRouter
+      </text>
+    </svg>
+  );
+}
+
+function AnthropicLogo() {
+  return (
+    <svg
+      width="120"
+      height="36"
+      viewBox="0 0 120 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Anthropic"
+    >
+      <defs>
+        <linearGradient id="anthropic-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#D97757" />
+          <stop offset="100%" stopColor="#C4613F" />
+        </linearGradient>
+      </defs>
+      {/* Stylized A mark */}
+      <path
+        d="M16 24 24 4l8 20M12 17h24"
+        stroke="url(#anthropic-grad)"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Text */}
+      <text
+        x="46"
+        y="18"
+        fontFamily="system-ui, sans-serif"
+        fontSize="13"
+        fontWeight="600"
+        fill="#D97757"
+      >
+        Anthropic
+      </text>
+    </svg>
+  );
+}
+
+function DeepgramLogo() {
+  return (
+    <svg
+      width="120"
+      height="36"
+      viewBox="0 0 120 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Deepgram"
+    >
+      {/* D shape */}
+      <path
+        d="M4 6v24h8c6.627 0 12-5.373 12-12S18.627 6 12 6H4Z"
+        stroke="#13EF93"
+        strokeWidth="2.2"
+        fill="none"
+        strokeLinejoin="round"
+      />
+      {/* Sound wave accents */}
+      <path
+        d="M28 12c2 2 2 10 0 12M33 9c3.5 3.5 3.5 15 0 18"
+        stroke="#13EF93"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.7"
+      />
+      {/* Text */}
+      <text
+        x="42"
+        y="22"
+        fontFamily="system-ui, sans-serif"
+        fontSize="12"
+        fontWeight="600"
+        fill="#13EF93"
+      >
+        Deepgram
+      </text>
+    </svg>
+  );
+}
+
+function TwilioLogo() {
+  return (
+    <svg
+      width="100"
+      height="36"
+      viewBox="0 0 100 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Twilio"
+    >
+      {/* Circle */}
+      <circle cx="16" cy="18" r="14" stroke="#F22F46" strokeWidth="2.2" fill="none" />
+      {/* Inner dots (Twilio icon pattern) */}
+      <circle cx="11" cy="13" r="2.5" fill="#F22F46" />
+      <circle cx="21" cy="13" r="2.5" fill="#F22F46" />
+      <circle cx="11" cy="23" r="2.5" fill="#F22F46" />
+      <circle cx="21" cy="23" r="2.5" fill="#F22F46" />
+      {/* Text */}
+      <text
+        x="36"
+        y="22"
+        fontFamily="system-ui, sans-serif"
+        fontSize="14"
+        fontWeight="600"
+        fill="#F22F46"
+      >
+        Twilio
+      </text>
+    </svg>
+  );
+}
+
+function GoogleLogo() {
+  return (
+    <svg
+      width="86"
+      height="36"
+      viewBox="0 0 86 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Google"
+    >
+      {/* G */}
+      <text x="0" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#4285F4">G</text>
+      {/* o */}
+      <text x="14" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#EA4335">o</text>
+      {/* o */}
+      <text x="28" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#FBBC05">o</text>
+      {/* g */}
+      <text x="42" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#4285F4">g</text>
+      {/* l */}
+      <text x="56" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#34A853">l</text>
+      {/* e */}
+      <text x="63" y="25" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" fill="#EA4335">e</text>
+    </svg>
+  );
+}
+
+function MicrosoftLogo() {
+  return (
+    <svg
+      width="130"
+      height="36"
+      viewBox="0 0 130 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Microsoft"
+    >
+      {/* 4-square grid */}
+      <rect x="2" y="6" width="10" height="10" fill="#F25022" rx="1" />
+      <rect x="14" y="6" width="10" height="10" fill="#7FBA00" rx="1" />
+      <rect x="2" y="18" width="10" height="10" fill="#00A4EF" rx="1" />
+      <rect x="14" y="18" width="10" height="10" fill="#FFB900" rx="1" />
+      {/* Text */}
+      <text
+        x="30"
+        y="22"
+        fontFamily="system-ui, sans-serif"
+        fontSize="13"
+        fontWeight="500"
+        fill="#737373"
+      >
+        Microsoft
+      </text>
+    </svg>
+  );
+}
+
+const partnerLogos: { key: string; component: React.ReactNode }[] = [
+  { key: "openrouter", component: <OpenRouterLogo /> },
+  { key: "anthropic", component: <AnthropicLogo /> },
+  { key: "deepgram", component: <DeepgramLogo /> },
+  { key: "twilio", component: <TwilioLogo /> },
+  { key: "google", component: <GoogleLogo /> },
+  { key: "microsoft", component: <MicrosoftLogo /> },
 ];
 
 const problemStats = [
@@ -394,12 +619,12 @@ export default function Home() {
             Powered by
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {trustPartners.map((name) => (
+            {partnerLogos.map((logo) => (
               <div
-                key={name}
-                className="flex h-10 items-center px-4 rounded-lg text-sm font-semibold text-gray-400 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 hover:text-navy transition-all duration-300 cursor-default select-none"
+                key={logo.key}
+                className="flex h-10 items-center px-4 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 cursor-default select-none"
               >
-                {name}
+                {logo.component}
               </div>
             ))}
           </div>
