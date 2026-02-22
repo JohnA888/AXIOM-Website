@@ -37,7 +37,7 @@ const tiers = [
     ctaVariant: "outline" as const,
     highlighted: false,
     features: [
-      "All 37 skills included",
+      "All 50 skills included",
       "Email intelligence",
       "Calendar optimization",
       "Meeting transcription",
@@ -128,7 +128,7 @@ const toolCosts: Record<string, { label: string; annual: number }> = {
 const faqItems = [
   {
     q: "What\u2019s included in the free Starter tier?",
-    a: "The Starter tier gives you full access to all 37 AXIOM skills, including email intelligence, calendar optimization, meeting transcription, and field recording for up to 2 devices. You get 10 GB of memory, basic Policy Engine access, and community support \u2014 all completely free for up to 5 users. You just need to bring your own OpenRouter API key for the AI model costs.",
+    a: "The Starter tier gives you full access to all 50 AXIOM skills, including email intelligence, calendar optimization, meeting transcription, and field recording for up to 2 devices. You get 10 GB of memory, basic Policy Engine access, and community support \u2014 all completely free for up to 5 users. You just need to bring your own OpenRouter API key for the AI model costs.",
   },
   {
     q: "What is OpenRouter, and why do I need my own key?",

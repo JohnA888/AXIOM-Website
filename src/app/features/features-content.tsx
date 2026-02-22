@@ -676,7 +676,7 @@ export function FeaturesContent() {
               How AXIOM works as an AI operations layer
             </h2>
             <p className="mt-4 text-base text-muted-text max-w-2xl mx-auto">
-              Not 11 disconnected products. One governed platform with shared
+              Not 9 disconnected products. One governed platform with shared
               memory, a unified policy engine, and a proactive Heartbeat engine
               that works around the clock.
             </p>

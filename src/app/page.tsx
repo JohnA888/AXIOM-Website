@@ -47,48 +47,6 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
-/* ------------------------------------------------------------------ */
-/*  Animated counter component                                        */
-/* ------------------------------------------------------------------ */
-function AnimatedCounter({
-  target,
-  prefix = "",
-  suffix = "",
-  duration = 2000,
-}: {
-  target: number;
-  prefix?: string;
-  suffix?: string;
-  duration?: number;
-}) {
-  const [count, setCount] = useState(0);
-  const { ref, inView } = useInView(0.5);
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [inView, target, duration]);
-
-  return (
-    <span ref={ref}>
-      {prefix}
-      {count.toLocaleString()}
-      {suffix}
-    </span>
-  );
-}
-
 /* ================================================================== */
 /*  DATA                                                               */
 /* ================================================================== */
@@ -415,11 +373,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Savings counter */}
+          {/* Savings counter — locked to marketing doc figures */}
           <div className="mt-12 text-center">
             <p className="text-success text-xl md:text-2xl font-bold animate-fade-up">
-              <AnimatedCounter target={837} prefix="$" suffix="K" /> &ndash;{" "}
-              <AnimatedCounter target={1530} prefix="$" suffix="K" />{" "}
+              $837K &ndash; $1.53M{" "}
               <span className="text-gray-400 font-normal">
                 saved per year for a 500-person organization
               </span>
