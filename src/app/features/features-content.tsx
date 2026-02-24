@@ -70,6 +70,15 @@ import {
   TrendingDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  ChatInboxMockup,
+  PolicyEngineMockup,
+  MemoryMockup,
+  SkillsMockup,
+  CallsMockup,
+  IntegrationsMockup,
+  RunDetailMockup,
+} from "@/components/product-mockups";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -89,6 +98,8 @@ interface FeatureSection {
   description: string;
   whyItMatters: string;
   mockupLabel: string;
+  mockupComponent?: React.ReactNode;
+  mockupCaption?: string;
   capabilities: Capability[];
   integrations: string[];
   docsLink?: string;
@@ -109,6 +120,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "For IT and RevOps teams managing hundreds of daily messages, email is the biggest source of context-switching and dropped balls. AXIOM's Heartbeat engine continuously monitors your inbox overnight and between meetings, proactively surfacing urgent items, drafting follow-ups, and escalating messages that match your policy rules -- so your team starts every morning at inbox zero, not inbox chaos.",
     mockupLabel: "Email Intelligence Dashboard",
+    mockupComponent: <ChatInboxMockup />,
+    mockupCaption: "AXIOM's unified inbox aggregates messages across Teams, SMS, Telegram, and email into a single threaded view. The AI assistant (Atlas) auto-executes low-risk actions and routes high-value decisions to the approvals queue.",
     capabilities: [
       {
         icon: Tag,
@@ -249,6 +262,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "Enterprise AI adoption stalls without governance. AXIOM's Policy Engine is the control plane for every action the platform takes: every email draft, every calendar change, every CRM update passes through policy checks (Allowed / Denied / Needs Approval) before execution. This isn't a bolt-on compliance layer -- it's the architectural foundation that makes autonomous AI safe for regulated industries.",
     mockupLabel: "Policy Rules & Audit Log",
+    mockupComponent: <PolicyEngineMockup />,
+    mockupCaption: "The Policy Engine enforces rules in real time. Test any action against your policy set, review risk-gated approvals, and trace every decision through the immutable audit log with correlation IDs.",
     capabilities: [
       {
         icon: Lock,
@@ -284,6 +299,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "Every other AI tool starts from scratch. AXIOM's Memory System is the shared context layer that makes the entire platform smarter over time. Memories are stored as human-readable Markdown files -- not opaque embeddings -- so your team can inspect, edit, and export organizational knowledge at any time. Full memory transparency means you always know what AXIOM knows.",
     mockupLabel: "Memory & Knowledge Explorer",
+    mockupComponent: <MemoryMockup />,
+    mockupCaption: "Memory files are plain Markdown you can read, edit, and export. The style drift monitor tracks tone consistency across channels, and preference signals are extracted from both explicit feedback and implicit behavior patterns.",
     capabilities: [
       {
         icon: SearchIcon,
@@ -319,6 +336,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "Unlike isolated automation tools, every AXIOM skill runs through the Policy Engine and logs to the audit trail. Skills are built on MCP, so you can import plugins from other ecosystems (Copilot, Cowork, CQ), wrap them with AXIOM's governance layer, and run them with full organizational context from the Memory System.",
     mockupLabel: "Workflow Builder Canvas",
+    mockupComponent: <SkillsMockup />,
+    mockupCaption: "Every skill tracks accuracy, execution count, and autonomy trust level. Skills graduate from Supervised to Guided to Autonomous as they prove reliability -- with critical-risk operations always requiring human approval regardless of trust level.",
     capabilities: [
       {
         icon: Zap,
@@ -389,6 +408,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "The gap between 'we discussed it' and 'it's in the backlog' is where work gets lost. AXIOM bridges that gap by pushing action items directly to your project boards and pulling status changes back -- so standups are informed by real progress, not stale updates.",
     mockupLabel: "Task Board Integration",
+    mockupComponent: <RunDetailMockup />,
+    mockupCaption: "Every workflow run is traced step-by-step with handler names, status, output, and latency. When a step hits a policy gate (like an outbound call requiring approval), downstream steps queue automatically until the gate clears.",
     capabilities: [
       {
         icon: Ticket,
@@ -424,6 +445,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "Output is only valuable if it reaches the right people in the right place. AXIOM exports to your team's existing tools so meeting notes land in Confluence, project updates post to Slack, and knowledge articles sync to Notion -- all governed by the same policy rules.",
     mockupLabel: "Export Destinations",
+    mockupComponent: <IntegrationsMockup />,
+    mockupCaption: "The integrations hub shows real-time health status, auth type, and sync freshness for every connected service. Credential rotation is tracked automatically with proactive alerts before expiry.",
     capabilities: [
       {
         icon: FileOutput,
@@ -459,6 +482,8 @@ const FEATURES: FeatureSection[] = [
     whyItMatters:
       "Phone calls shouldn't be a separate data silo. AXIOM treats voice as another channel on the same governed platform -- calls are transcribed by Deepgram or Whisper (LLM-agnostic, your choice), logged to your CRM, and stored in shared memory alongside every email and meeting.",
     mockupLabel: "Call Management Interface",
+    mockupComponent: <CallsMockup />,
+    mockupCaption: "Calls are logged with caller level, consent compliance, and disposition. Full transcripts are speaker-attributed and time-stamped. Action items are automatically extracted and routed to your task board.",
     capabilities: [
       {
         icon: PhoneIncoming,
@@ -1018,30 +1043,41 @@ const FeatureSectionBlock = forwardRef<HTMLElement, { feature: FeatureSection }>
           </p>
         </div>
 
-        {/* Mockup placeholder — improved */}
-        <div className="mb-10 overflow-hidden rounded-2xl border border-gray-200 bg-surface">
-          <div className="flex items-center gap-2 border-b border-gray-200 bg-white px-4 py-2.5">
-            <span className="h-3 w-3 rounded-full bg-red-400" />
-            <span className="h-3 w-3 rounded-full bg-yellow-400" />
-            <span className="h-3 w-3 rounded-full bg-green-400" />
-            <span className="ml-3 text-xs text-muted-text">
-              {feature.mockupLabel}
-            </span>
+        {/* Product mockup */}
+        {feature.mockupComponent ? (
+          <div className="mb-10">
+            {feature.mockupComponent}
+            {feature.mockupCaption && (
+              <p className="mt-3 text-xs text-muted-text leading-relaxed max-w-2xl">
+                {feature.mockupCaption}
+              </p>
+            )}
           </div>
-          <div className="flex h-64 items-center justify-center sm:h-80">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-blue/10">
-                <Icon className="h-8 w-8 text-accent-blue/40" />
-              </div>
-              <p className="text-sm font-medium text-muted-text">
+        ) : (
+          <div className="mb-10 overflow-hidden rounded-2xl border border-gray-200 bg-surface">
+            <div className="flex items-center gap-2 border-b border-gray-200 bg-white px-4 py-2.5">
+              <span className="h-3 w-3 rounded-full bg-red-400" />
+              <span className="h-3 w-3 rounded-full bg-yellow-400" />
+              <span className="h-3 w-3 rounded-full bg-green-400" />
+              <span className="ml-3 text-xs text-muted-text">
                 {feature.mockupLabel}
-              </p>
-              <p className="mt-1 text-xs text-muted-text/60">
-                Interactive product preview coming soon
-              </p>
+              </span>
+            </div>
+            <div className="flex h-64 items-center justify-center sm:h-80">
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-blue/10">
+                  <Icon className="h-8 w-8 text-accent-blue/40" />
+                </div>
+                <p className="text-sm font-medium text-muted-text">
+                  {feature.mockupLabel}
+                </p>
+                <p className="mt-1 text-xs text-muted-text/60">
+                  Interactive product preview coming soon
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Capability cards */}
         <div className="mb-8 grid gap-4 sm:grid-cols-2">

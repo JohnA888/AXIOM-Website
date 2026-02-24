@@ -521,73 +521,90 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right — Mock Dashboard */}
+            {/* Right — Mock Dashboard (based on real AXIOM Command Dashboard) */}
             <div className="relative">
-              <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-2xl">
+              <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 shadow-2xl">
                 {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-red-400" />
-                    <div className="h-3 w-3 rounded-full bg-yellow-400" />
-                    <div className="h-3 w-3 rounded-full bg-green-400" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
+                    <span className="ml-2 text-[10px] text-gray-500 font-mono">
+                      AXIOM Command Dashboard — Atlas
+                    </span>
                   </div>
-                  <span className="text-xs text-gray-500 font-mono">
-                    axiom.app/dashboard
-                  </span>
-                </div>
-
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="rounded-xl bg-accent-blue/10 border border-accent-blue/20 p-4">
-                    <p className="text-xs text-gray-400 mb-1">Emails Handled</p>
-                    <p className="text-2xl font-bold text-white">1,284</p>
-                    <p className="text-xs text-success mt-1">+23% this week</p>
-                  </div>
-                  <div className="rounded-xl bg-success/10 border border-success/20 p-4">
-                    <p className="text-xs text-gray-400 mb-1">Hours Saved</p>
-                    <p className="text-2xl font-bold text-white">47.2</p>
-                    <p className="text-xs text-success mt-1">This month</p>
-                  </div>
-                  <div className="rounded-xl bg-warning/10 border border-warning/20 p-4">
-                    <p className="text-xs text-gray-400 mb-1">Meetings</p>
-                    <p className="text-2xl font-bold text-white">38</p>
-                    <p className="text-xs text-accent-blue mt-1">12 this week</p>
+                  <div className="flex gap-2">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-mono text-gray-500">MODE: server</span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[9px] font-mono text-gray-500">TENANT: TSC-TX-01</span>
                   </div>
                 </div>
 
-                {/* Activity feed */}
-                <div className="space-y-3">
+                {/* KPI Row */}
+                <div className="grid grid-cols-4 gap-2 mb-4">
                   {[
-                    {
-                      icon: Mail,
-                      label: "Drafted reply to Acme Corp proposal",
-                      time: "2 min ago",
-                      color: "text-accent-blue",
-                    },
-                    {
-                      icon: Calendar,
-                      label: "Rescheduled standup (conflict resolved)",
-                      time: "8 min ago",
-                      color: "text-success",
-                    },
-                    {
-                      icon: Mic,
-                      label: "Meeting summary sent to #product",
-                      time: "14 min ago",
-                      color: "text-warning",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 rounded-lg bg-white/5 border border-white/5 px-4 py-3"
-                    >
-                      <item.icon className={`h-4 w-4 ${item.color}`} />
-                      <span className="flex-1 text-sm text-gray-300 truncate">
-                        {item.label}
-                      </span>
-                      <span className="text-xs text-gray-500 whitespace-nowrap">
-                        {item.time}
-                      </span>
+                    { label: "Heartbeat", value: "92%", delta: "31 runs, 4 alerts", color: "border-accent-blue/20 bg-accent-blue/10" },
+                    { label: "Approvals", value: "7", delta: "2 critical, 3 high", color: "border-warning/20 bg-warning/10" },
+                    { label: "Success Rate", value: "96.4%", delta: "184 / 191 total", color: "border-success/20 bg-success/10" },
+                    { label: "Daily Cost", value: "$42.17", delta: "+$7.83 remaining", color: "border-accent-blue/20 bg-accent-blue/10" },
+                  ].map((kpi) => (
+                    <div key={kpi.label} className={`rounded-lg border ${kpi.color} p-3`}>
+                      <p className="text-[9px] text-gray-400 uppercase tracking-wider font-mono mb-0.5">{kpi.label}</p>
+                      <p className="text-lg font-bold text-white leading-tight">{kpi.value}</p>
+                      <p className="text-[9px] text-gray-500 font-mono mt-0.5">{kpi.delta}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Execution Engine + Inbox */}
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="rounded-lg bg-white/5 border border-white/5 p-3">
+                    <p className="text-[9px] text-gray-400 uppercase tracking-wider font-mono mb-2">Execution Engine</p>
+                    <div className="space-y-1.5">
+                      {[
+                        { name: "wf-deal-tracker", badge: "done", color: "text-emerald-400 border-emerald-400/30 bg-emerald-400/10" },
+                        { name: "wf-appointment-reminder", badge: "approval gate", color: "text-amber-400 border-amber-400/30 bg-amber-400/10" },
+                        { name: "wf-voicemail-digest", badge: "running", color: "text-sky-400 border-sky-400/30 bg-sky-400/10" },
+                      ].map((wf) => (
+                        <div key={wf.name} className="flex items-center justify-between rounded-md bg-white/5 border border-white/5 px-2 py-1.5">
+                          <span className="text-[10px] text-gray-300 font-mono truncate">{wf.name}</span>
+                          <span className={`text-[8px] font-semibold uppercase tracking-wider rounded-full border px-1.5 py-0.5 ${wf.color}`}>{wf.badge}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-lg bg-white/5 border border-white/5 p-3">
+                    <p className="text-[9px] text-gray-400 uppercase tracking-wider font-mono mb-2">Unified Inbox</p>
+                    <div className="space-y-1.5">
+                      {[
+                        { msg: "VIP Email Escalation", badge: "needs action", color: "text-amber-400 border-amber-400/30 bg-amber-400/10", source: "Teams DM" },
+                        { msg: "Unknown Caller Voicemail", badge: "triaged", color: "text-sky-400 border-sky-400/30 bg-sky-400/10", source: "Twilio voice" },
+                        { msg: "Asana Task Scheduled", badge: "completed", color: "text-emerald-400 border-emerald-400/30 bg-emerald-400/10", source: "scheduler" },
+                      ].map((item) => (
+                        <div key={item.msg} className="rounded-md bg-white/5 border border-white/5 px-2 py-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] text-gray-300 truncate">{item.msg}</span>
+                            <span className={`text-[8px] font-semibold uppercase tracking-wider rounded-full border px-1.5 py-0.5 ${item.color}`}>{item.badge}</span>
+                          </div>
+                          <span className="text-[8px] text-gray-500 font-mono">{item.source}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom row */}
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { label: "Memory", items: ["preferences.md synced", "Style drift detected"] },
+                    { label: "Policy", items: ["voice.outbound: DENY", "Audit trail: 312 events"] },
+                    { label: "Enterprise", items: ["842 active users", "RLS isolation: pass"] },
+                  ].map((section) => (
+                    <div key={section.label} className="rounded-lg bg-white/5 border border-white/5 p-2">
+                      <p className="text-[8px] text-gray-400 uppercase tracking-wider font-mono mb-1">{section.label}</p>
+                      {section.items.map((item) => (
+                        <p key={item} className="text-[9px] text-gray-400 font-mono truncate">{item}</p>
+                      ))}
                     </div>
                   ))}
                 </div>
