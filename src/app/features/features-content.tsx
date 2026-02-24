@@ -332,22 +332,22 @@ const FEATURES: FeatureSection[] = [
     icon: Zap,
     headline: "Skills & Workflows",
     description:
-      "Automate anything. AXIOM ships with 50 built-in skills and a visual workflow builder. Built on the Model Context Protocol (MCP), skills are policy-wrapped and auditable by design.",
+      "Automate anything across five skill levels. AXIOM ships with 50 built-in skills classified from Explore (single-step, free) to Autonomous (self-initiating, outcome-priced). Built on MCP, every skill is policy-wrapped and auditable by design.",
     whyItMatters:
-      "Unlike isolated automation tools, every AXIOM skill runs through the Policy Engine and logs to the audit trail. Skills are built on MCP, so you can import plugins from other ecosystems (Copilot, Cowork, CQ), wrap them with AXIOM's governance layer, and run them with full organizational context from the Memory System.",
+      "AXIOM's five-level skill classification system -- Explore, Assist, Collaborate, Orchestrate, and Autonomous -- ensures you succeed before you scale. Users earn access to higher levels through demonstrated mastery (20+ runs, 85%+ acceptance rate, 3+ skills used), not by purchasing upgrades. Every skill runs through the Policy Engine and logs to the audit trail, with output-based pricing tied directly to the value delivered.",
     mockupLabel: "Workflow Builder Canvas",
     mockupComponent: <SkillsMockup />,
     mockupCaption: "Every skill tracks accuracy, execution count, and autonomy trust level. Skills graduate from Supervised to Guided to Autonomous as they prove reliability -- with critical-risk operations always requiring human approval regardless of trust level.",
     capabilities: [
       {
         icon: Zap,
-        title: "50 Built-in Skills",
-        description: "Pre-built automations for common tasks -- from data extraction to report generation.",
+        title: "5 Skill Levels, 50+ Built-in Skills",
+        description: "From free Explore outputs ($0\u2013$1/run) to Autonomous cycles ($50\u2013$500+/cycle). Every level maps to a concrete business outcome.",
       },
       {
         icon: Workflow,
         title: "Custom Workflow Builder",
-        description: "Visually chain skills into multi-step automations with conditional logic.",
+        description: "Visually chain skills into multi-step automations with conditional logic. Collaborate and Orchestrate skills handle exceptions automatically.",
       },
       {
         icon: Code,
@@ -356,8 +356,8 @@ const FEATURES: FeatureSection[] = [
       },
       {
         icon: Webhook,
-        title: "Webhooks & Triggers",
-        description: "Fire workflows from external events or on schedules with zero code.",
+        title: "Mastery-Gated Progression",
+        description: "Unlock higher levels through consistent usage and quality. The system tracks execution volume, acceptance rates, and skill breadth automatically.",
       },
     ],
     integrations: ["MCP Ecosystem", "Zapier", "Make", "Custom Webhooks"],
@@ -515,30 +515,30 @@ const FEATURES: FeatureSection[] = [
     icon: Store,
     headline: "SkillForge Marketplace",
     description:
-      "Build, share, and discover AI skills. SkillForge is AXIOM's marketplace where teams publish custom skills, organizations share internal automations, and developers extend the platform with the SDK.",
+      "Build, share, and discover AI skills. SkillForge is AXIOM's marketplace where teams publish custom skills, organizations share internal automations, and developers extend the platform. Every skill runs with output-based pricing at its appropriate level.",
     whyItMatters:
-      "A platform is only as powerful as its ecosystem. SkillForge lets your team build once and share across the organization -- with every skill automatically wrapped in Policy Engine governance and full audit logging, regardless of who built it.",
+      "A platform is only as powerful as its ecosystem. SkillForge lets your team build once and share across the organization -- with every skill automatically wrapped in Policy Engine governance, full audit logging, and skill-level pricing regardless of who built it. Custom skills built for one client can be generalized and published for others, creating recurring per-run revenue and potential royalties for early contributors.",
     mockupLabel: "SkillForge Marketplace Browse",
     capabilities: [
       {
         icon: Package,
         title: "Community Skills",
-        description: "Browse and install verified skills built by the AXIOM community.",
+        description: "Browse and install verified skills built by the AXIOM community, each classified across the five skill levels.",
       },
       {
         icon: Share,
         title: "Org Skill Sharing",
-        description: "Publish internal skills across your organization with role-based access.",
+        description: "Publish internal skills across your organization with role-based access. Every execution is policy-governed and audited.",
       },
       {
         icon: Code,
         title: "Developer SDK",
-        description: "Build custom skills with the AXIOM SDK using TypeScript or Python.",
+        description: "Build custom skills with the AXIOM SDK using TypeScript or Python. Skills inherit governance and output-based pricing automatically.",
       },
       {
         icon: Globe,
         title: "Marketplace Publishing",
-        description: "Share your skills publicly and contribute to the growing AXIOM ecosystem.",
+        description: "Share your skills publicly to earn per-run revenue. Network effects compound as the ecosystem grows.",
       },
     ],
     integrations: ["AXIOM SDK", "npm / PyPI", "GitHub", "MCP Ecosystem"],
@@ -945,7 +945,7 @@ export function FeaturesContent() {
                     ~$175/user/mo
                   </td>
                   <td className="px-6 py-4 font-bold text-center text-accent-blue">
-                    $29/user/mo
+                    Output-based
                   </td>
                 </tr>
               </tfoot>
@@ -1041,6 +1041,20 @@ const FeatureSectionBlock = forwardRef<HTMLElement, { feature: FeatureSection }>
           <p className="text-sm leading-relaxed text-muted-text">
             {feature.whyItMatters}
           </p>
+          {feature.id === "skills" && (
+            <p className="mt-2 text-xs text-muted-text">
+              Skill progression is powered by the{" "}
+              <a
+                href="https://c1m.ai/work-shift/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-blue font-semibold hover:underline"
+              >
+                WorkSHIFT methodology
+              </a>{" "}
+              &mdash; a 31-day professional AI transformation journey. Every AXIOM account includes the WorkSHIFT Coach to guide your progression.
+            </p>
+          )}
         </div>
 
         {/* Product mockup */}

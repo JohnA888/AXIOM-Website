@@ -393,15 +393,16 @@ const howItWorks = [
 
 const pricingTiers = [
   {
-    name: "Free",
+    name: "Starter",
     price: "$0",
     period: "forever",
-    description: "For individuals and small teams getting started.",
+    description: "1 assistant. Unlimited Explore outputs. No credit card.",
     features: [
-      "Up to 5 users",
-      "Email intelligence",
-      "Basic scheduling",
-      "Meeting summaries",
+      "1 AI assistant",
+      "Unlimited Level 1 outputs",
+      "All 50 skills (Explore level)",
+      "Basic Policy Engine",
+      "WorkSHIFT Coach",
       "Community support",
     ],
     cta: "Start Free",
@@ -409,18 +410,18 @@ const pricingTiers = [
     highlighted: false,
   },
   {
-    name: "Pro",
-    price: "$29",
-    period: "/user/mo",
-    description: "For teams that want the full AXIOM experience.",
+    name: "Professional",
+    price: "$99\u2013$299",
+    period: "/mo + per-output",
+    description: "Up to 5 assistants. All 5 skill levels. Full autonomy.",
     features: [
-      "Unlimited users",
-      "All modules included",
-      "Policy engine",
-      "Shared memory",
-      "Custom workflows",
+      "Up to 5 AI assistants",
+      "Pay-per-output at all levels",
+      "Autonomous skill execution",
+      "Advanced Policy Engine",
+      "Mastery progression",
+      "CRM & PM integrations",
       "Priority support",
-      "API access",
     ],
     cta: "Start Free Trial",
     href: "/signup?plan=pro",
@@ -430,15 +431,15 @@ const pricingTiers = [
     name: "Enterprise",
     price: "Custom",
     period: "",
-    description: "For organizations with advanced security & scale needs.",
+    description: "Unlimited assistants. Custom per-output pricing.",
     features: [
-      "Everything in Pro",
+      "Everything in Professional",
+      "Unlimited AI assistants",
       "SSO / SAML",
-      "Dedicated infrastructure",
-      "Custom SLAs",
-      "On-premise option",
-      "Dedicated CSM",
-      "Custom integrations",
+      "Air-gapped deployment",
+      "Custom data residency",
+      "Private SkillForge",
+      "Custom skill development",
     ],
     cta: "Contact Sales",
     href: "/contact",
@@ -800,13 +801,21 @@ export default function Home() {
                 <h3 className="text-3xl font-extrabold text-white mb-1">
                   AXIOM
                 </h3>
-                <p className="text-5xl font-extrabold text-accent-blue mt-4">
-                  $29
+                <p className="text-2xl font-extrabold text-accent-blue mt-4">
+                  Output-Based
                 </p>
-                <p className="text-gray-400 mt-1">/user/month</p>
+                <p className="text-gray-400 mt-1">Pay per skill execution</p>
                 <p className="mt-4 text-sm text-gray-400">
-                  All 9 capabilities. One platform.
+                  Platform starts free. Pay only for what your assistants deliver.
                 </p>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium text-gray-400">
+                    5 skill levels
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium text-gray-400">
+                    $0&ndash;$500+ per run
+                  </span>
+                </div>
               </div>
 
               <div className="mt-10 rounded-2xl bg-success/10 border border-success/20 px-8 py-5 text-center">
@@ -955,10 +964,10 @@ export default function Home() {
               Pricing
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy leading-tight">
-              Simple, transparent pricing.
+              Pay for outcomes, not seats.
             </h2>
             <p className="mt-4 text-lg text-muted-text">
-              Free for teams under 5. No credit card required.
+              Output-based pricing across 5 skill levels. Start free with unlimited Explore outputs.
             </p>
           </div>
 
