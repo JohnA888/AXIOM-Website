@@ -42,71 +42,93 @@ type ColumnKey =
   | "tactiq"
   | "readai";
 
-type MatrixRow = { capability: string } & Record<ColumnKey, CellValue>;
+type MatrixRow = { capability: string; skillLevel?: { level: number; name: string } } & Record<ColumnKey, CellValue>;
+
+/* Skill level map for AXIOM capabilities */
+const skillLevelColors: Record<number, string> = {
+  1: "bg-blue-500/10 text-blue-600 border-blue-500/30",
+  2: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
+  3: "bg-amber-500/10 text-amber-600 border-amber-500/30",
+  4: "bg-purple-500/10 text-purple-600 border-purple-500/30",
+  5: "bg-rose-500/10 text-rose-600 border-rose-500/30",
+};
 
 const matrixRows: MatrixRow[] = [
   {
     capability: "Email triage",
+    skillLevel: { level: 1, name: "Explore" },
     axiom: true, fyxer: true, reclaim: false, motion: false, superhuman: true,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "AI email drafts",
+    skillLevel: { level: 2, name: "Assist" },
     axiom: true, fyxer: true, reclaim: false, motion: false, superhuman: true,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Smart time blocking",
+    skillLevel: { level: 2, name: "Assist" },
     axiom: true, fyxer: false, reclaim: true, motion: true, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Focus time protection",
+    skillLevel: { level: 2, name: "Assist" },
     axiom: true, fyxer: false, reclaim: true, motion: "Partial", superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Task auto-scheduling",
+    skillLevel: { level: 3, name: "Collaborate" },
     axiom: true, fyxer: false, reclaim: true, motion: true, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Scheduling links",
+    skillLevel: { level: 1, name: "Explore" },
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: false, otter: false, calendly: true, tactiq: false, readai: false,
   },
   {
     capability: "Meeting transcription",
+    skillLevel: { level: 1, name: "Explore" },
     axiom: true, fyxer: "Partial", reclaim: false, motion: false, superhuman: false,
     fireflies: true, otter: true, calendly: false, tactiq: true, readai: true,
   },
   {
     capability: "AI meeting summaries",
+    skillLevel: { level: 2, name: "Assist" },
     axiom: true, fyxer: "Partial", reclaim: false, motion: false, superhuman: false,
     fireflies: true, otter: true, calendly: false, tactiq: true, readai: true,
   },
   {
     capability: "Meeting analytics",
+    skillLevel: { level: 3, name: "Collaborate" },
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: "Partial", otter: "Partial", calendly: false, tactiq: false, readai: true,
   },
   {
     capability: "Field recording",
+    skillLevel: { level: 1, name: "Explore" },
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: "Partial", readai: false,
   },
   {
     capability: "CRM integration",
+    skillLevel: { level: 3, name: "Collaborate" },
     axiom: true, fyxer: "Partial", reclaim: "Partial", motion: "Partial", superhuman: true,
     fireflies: true, otter: "Partial", calendly: "Partial", tactiq: "Partial", readai: "Partial",
   },
   {
     capability: "Policy engine",
+    skillLevel: { level: 4, name: "Orchestrate" },
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
     capability: "Cross-context memory",
+    skillLevel: { level: 4, name: "Orchestrate" },
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
@@ -121,9 +143,9 @@ const matrixRows: MatrixRow[] = [
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
-    capability: "Monthly cost / user",
-    axiom: "$29", fyxer: "$22–38", reclaim: "$8–12", motion: "$29–49", superhuman: "$25–40",
-    fireflies: "$10–39", otter: "$8–20", calendly: "$10–16", tactiq: "$12", readai: "$20–30",
+    capability: "Pricing model",
+    axiom: "Output-based", fyxer: "$22–38/mo", reclaim: "$8–12/mo", motion: "$29–49/mo", superhuman: "$25–40/mo",
+    fireflies: "$10–39/mo", otter: "$8–20/mo", calendly: "$10–16/mo", tactiq: "$12/mo", readai: "$20–30/mo",
   },
 ];
 
@@ -181,7 +203,7 @@ const enterpriseMatrix: EnterpriseRow[] = [
   { capability: "Office 365 deep integration", axiom: "No", openclaw: "No", copilot: "Yes", cowork: "No" },
   { capability: "Open source", axiom: "Planned", openclaw: "Yes", copilot: "No", cowork: "No" },
   { capability: "Ships today", axiom: "In development", openclaw: "Yes", copilot: "Yes", cowork: "Yes" },
-  { capability: "Per-user cost (est.)", axiom: "$15–$45/mo", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
+  { capability: "Pricing model", axiom: "Output-based", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
 ];
 
 const enterpriseCompetitors = [
@@ -379,6 +401,26 @@ export default function ComparePage() {
             </p>
           </div>
 
+          {/* Skill Level Legend */}
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-xs font-semibold text-muted-text uppercase tracking-wider mr-1">AXIOM Skill Levels:</span>
+            {[
+              { level: 1, name: "Explore", price: "$0\u2013$1" },
+              { level: 2, name: "Assist", price: "$2\u2013$10" },
+              { level: 3, name: "Collaborate", price: "$5\u2013$25" },
+              { level: 4, name: "Orchestrate", price: "$15\u2013$100+" },
+              { level: 5, name: "Autonomous", price: "$50\u2013$500+" },
+            ].map((sl) => (
+              <span
+                key={sl.level}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold ${skillLevelColors[sl.level]}`}
+              >
+                L{sl.level} {sl.name}
+                <span className="font-normal opacity-70">{sl.price}/run</span>
+              </span>
+            ))}
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
             <table className="w-full min-w-[1200px] text-left text-sm">
               <thead>
@@ -405,17 +447,25 @@ export default function ComparePage() {
               <tbody>
                 {matrixRows.map((row, idx) => {
                   const cells = columnKeys.map((key) => row[key]);
+                  const sl = row.skillLevel;
                   return (
                     <tr
                       key={row.capability}
                       className={idx % 2 === 0 ? "bg-white" : "bg-surface/60"}
                     >
                       <td
-                        className={`sticky left-0 z-10 whitespace-nowrap px-4 py-3 font-medium text-body-text text-xs ${
+                        className={`sticky left-0 z-10 px-4 py-3 font-medium text-body-text text-xs ${
                           idx % 2 === 0 ? "bg-white" : "bg-surface/60"
                         }`}
                       >
-                        {row.capability}
+                        <div className="flex items-center gap-2">
+                          <span className="whitespace-nowrap">{row.capability}</span>
+                          {sl && (
+                            <span className={`inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[9px] font-semibold whitespace-nowrap ${skillLevelColors[sl.level]}`}>
+                              L{sl.level}
+                            </span>
+                          )}
+                        </div>
                       </td>
                       {cells.map((cell, ci) => (
                         <td
@@ -486,17 +536,17 @@ export default function ComparePage() {
                 </tr>
                 <tr className="bg-accent-blue/5">
                   <td className="px-5 py-4 font-bold text-accent-blue">AXIOM (replaces all)</td>
-                  <td className="px-5 py-4 font-semibold text-accent-blue">$29/mo</td>
-                  <td className="px-5 py-4 font-bold text-accent-blue">$174,000</td>
-                  <td className="px-5 py-4" />
+                  <td className="px-5 py-4 font-semibold text-accent-blue">Output-based</td>
+                  <td className="px-5 py-4 font-bold text-accent-blue">Pay per run</td>
+                  <td className="px-5 py-4 text-xs text-accent-blue">Platform from $0/mo + per-output fees across 5 skill levels</td>
                 </tr>
                 <tr className="bg-success/5">
-                  <td className="px-5 py-4 font-bold text-success">You save</td>
+                  <td className="px-5 py-4 font-bold text-success">Estimated savings</td>
                   <td className="px-5 py-4" />
                   <td className="px-5 py-4 text-lg font-extrabold text-success">
-                    $663K&ndash;$1.36M
+                    $837K&ndash;$1.53M
                   </td>
-                  <td className="px-5 py-4 text-sm text-success">per year</td>
+                  <td className="px-5 py-4 text-sm text-success">per year (500 users)</td>
                 </tr>
               </tfoot>
             </table>
