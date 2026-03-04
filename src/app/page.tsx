@@ -287,71 +287,72 @@ const partnerLogos: { key: string; component: React.ReactNode }[] = [
 
 const problemStats = [
   {
-    value: "$1,650",
-    label: "/user/year",
-    description: "Average annual spend across fragmented AI tools per employee",
+    value: "2.5",
+    label: " hrs/day",
+    description: "Average time each employee spends on email triage alone",
+  },
+  {
+    value: "60",
+    label: "%",
+    description:
+      "Of the average workday consumed by admin tasks — email, calendar, meeting prep, approvals",
+  },
+  {
+    value: "$15K",
+    label: "/yr",
+    description:
+      "Per-employee productivity lost to administrative overhead and context switching",
   },
   {
     value: "9",
-    label: " tools",
-    description: "Average number of AI point-solutions deployed per team",
-  },
-  {
-    value: "0",
-    label: " governance",
+    label: "/hr",
     description:
-      "No centralized policy engine across disconnected AI vendors",
-  },
-  {
-    value: "0",
-    label: " shared memory",
-    description:
-      "Context is siloed — each tool starts from scratch every time",
+      "Context switches per hour — each costing 9 seconds of mental re-engagement",
   },
 ];
 
 const features = [
   {
     icon: Mail,
-    title: "Intelligent Email",
+    title: "Email Intelligence",
     description:
-      "AI-drafted replies, smart triage, priority sorting, and follow-up tracking. Your inbox works for you.",
+      "Triages by urgency, summarizes long threads, extracts action items, and drafts contextual replies for review before sending.",
   },
   {
     icon: Calendar,
-    title: "Smart Scheduling",
+    title: "Calendar Management",
     description:
-      "Conflict-free booking, travel buffers, timezone logic, and attendee preferences — all automated.",
+      "Finds meeting slots across attendees, blocks focus time, prevents overbooking, generates agendas, and prepares materials before each meeting.",
   },
   {
     icon: Mic,
     title: "Meeting Intelligence",
     description:
-      "Real-time transcription, action-item extraction, summary generation, and automatic follow-ups.",
+      "Real-time transcription, action-item extraction, summary generation, and automatic follow-ups routed to your task board and CRM.",
+  },
+  {
+    icon: Phone,
+    title: "Voice Operations",
+    description:
+      "Screens inbound calls, provides real-time conversation guidance, handles voicemail transcription, and initiates outbound calls with prepared context.",
   },
   {
     icon: Shield,
     title: "Policy Engine",
     description:
-      "Define what AI can and cannot do. Role-based controls, approval workflows, and full audit logs.",
+      "Enforces rules before the LLM executes — not after. Role-based controls, approval workflows, and an immutable audit trail.",
   },
   {
     icon: Brain,
-    title: "Shared Memory",
+    title: "Persistent Memory",
     description:
-      "Persistent organizational context that every module shares. Your AI remembers everything.",
+      "Semantic understanding of each employee's relationships, projects, and preferences — stored in human-readable files they can inspect and edit.",
   },
   {
     icon: Puzzle,
-    title: "Skills & Workflows",
+    title: "Domain Playbooks",
     description:
-      "Custom automations that chain modules together. Build once, run forever — no code required.",
-  },
-  {
-    icon: Phone,
-    title: "Voice & Telephony",
-    description:
-      "Call screening, real-time voice guidance, voicemail transcription, and outbound calling — all governed by policy.",
+      "Pre-built operational suites for Finance, Sales, Legal, HR, and Operations. Deploy a complete AI ops layer for any department in minutes.",
   },
 ];
 
@@ -496,14 +497,15 @@ export default function Home() {
               </h1>
 
               <p className="mt-4 text-sm md:text-base text-accent-blue/70 font-medium">
-                For IT, RevOps, and services teams drowning in point solutions.
+                Give every employee an intelligent, secure, always-available AI operations partner.
               </p>
 
               <p className="mt-4 text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
-                AXIOM is the governed AI ops layer that manages your email,
-                calendar, meetings, tasks, and field recordings — with
-                centralized policy, shared memory, and a proactive Heartbeat
-                engine.
+                AXIOM is the governed AI ops layer that sits across email,
+                calendar, tasks, voice, and messaging. It learns each
+                employee&apos;s preferences, enforces company policies, and acts
+                proactively on their behalf &mdash; with shared memory and a 24/7
+                Heartbeat engine.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -666,9 +668,12 @@ export default function Home() {
               The Problem
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy leading-tight">
-              Your team runs on 9 different AI tools. That&apos;s 9 invoices, 9
-              logins, 9 data silos.
+              Administrative overload at scale.
             </h2>
+            <p className="mt-4 text-lg text-muted-text max-w-2xl mx-auto">
+              Existing solutions fail because they address individual channels in isolation.
+              No single system has visibility into all the work flowing through your organization.
+            </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -713,8 +718,9 @@ export default function Home() {
               One governed platform. Everything connected.
             </h2>
             <p className="mt-4 text-lg text-muted-text max-w-2xl mx-auto">
-              Seven powerful modules with shared memory, centralized policy governance,
-              and a Heartbeat engine that operates around the clock.
+              A full operating layer across email, calendar, tasks, voice, and messaging &mdash; with
+              shared memory, centralized policy governance, and a Heartbeat engine that
+              operates around the clock.
             </p>
           </div>
 
@@ -907,25 +913,25 @@ export default function Home() {
                 icon: Shield,
                 title: "AI Sovereignty",
                 description:
-                  "You choose your models, providers, and infrastructure. Run air-gapped or hybrid. Switch providers with zero code changes.",
+                  "Self-hosted in your VPC or air-gapped. Your data never leaves your infrastructure. Swap LLMs with one config change — Claude, GPT, Llama, or any model.",
               },
               {
                 icon: Lock,
                 title: "Policy Governance",
                 description:
-                  "Every AI action evaluated against org rules before execution. Not after. Not optionally. Every action, every time.",
+                  "Rules enforced before the LLM executes — not after. 'No email drafts to customers without approval,' enforced on the server, not bypassed by prompt injection.",
               },
               {
                 icon: Zap,
-                title: "Proactive Operation",
+                title: "Proactive Heartbeat",
                 description:
-                  "The Heartbeat runs 24/7 on the server. Processes overnight email, monitors deadlines, prepares briefings while you sleep.",
+                  "Runs 24/7 on the server — monitors conditions you define, surfaces actionable alerts, and prepares morning briefings while you sleep.",
               },
               {
                 icon: Eye,
                 title: "Memory Transparency",
                 description:
-                  "Employees see everything the AI knows about them in plain-text files they can read, edit, and delete.",
+                  "Long-term memory stored in human-readable markdown files. Employees read, edit, and delete what the AI knows about them. GDPR-compliant by design.",
               },
             ].map((item, i) => (
               <div
@@ -1057,7 +1063,7 @@ export default function Home() {
             Stop paying for 9 tools. Start running on one.
           </h2>
           <p className="mt-6 text-lg text-white/70 max-w-xl mx-auto">
-            Free for teams under 5. No credit card required.
+            Start free. Deploy in your VPC or cloud. No credit card required.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

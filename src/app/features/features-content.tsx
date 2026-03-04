@@ -116,9 +116,9 @@ const FEATURES: FeatureSection[] = [
     icon: Mail,
     headline: "Email Intelligence",
     description:
-      "Let AI handle the flood. AXIOM triages your inbox, drafts context-aware replies, and ensures nothing falls through the cracks. Spend less time managing email and more time on work that matters.",
+      "AXIOM triages incoming email by urgency and type, summarizes long threads, extracts action items, and drafts contextual replies for employee review before sending. Every morning, employees wake up to a Briefing: a time-indexed summary of overnight email, new tasks, and critical alerts.",
     whyItMatters:
-      "For IT and RevOps teams managing hundreds of daily messages, email is the biggest source of context-switching and dropped balls. AXIOM's Heartbeat engine continuously monitors your inbox overnight and between meetings, proactively surfacing urgent items, drafting follow-ups, and escalating messages that match your policy rules -- so your team starts every morning at inbox zero, not inbox chaos.",
+      "Knowledge workers average 2.5 hours per day on email triage alone. AXIOM's Heartbeat engine continuously monitors your inbox overnight, proactively surfacing urgent items, drafting follow-ups, and escalating messages that match your policy rules -- so your team starts every morning at inbox zero, not inbox chaos.",
     mockupLabel: "Email Intelligence Dashboard",
     mockupComponent: <ChatInboxMockup />,
     mockupCaption: "AXIOM's unified inbox aggregates messages across Teams, SMS, Telegram, and email into a single threaded view. The AI assistant (Atlas) auto-executes low-risk actions and routes high-value decisions to the approvals queue.",
@@ -153,9 +153,9 @@ const FEATURES: FeatureSection[] = [
     icon: Calendar,
     headline: "Calendar & Scheduling",
     description:
-      "Reclaim your calendar. AXIOM intelligently blocks focus time, schedules habits, and auto-fits tasks around your meetings so every hour counts. Share scheduling links without the back-and-forth.",
+      "AXIOM finds meeting slots across attendees, blocks focus time, prevents overbooking, generates agendas, and prepares materials one hour before each meeting. Share scheduling links without the back-and-forth.",
     whyItMatters:
-      "Services and consulting teams lose 5-8 hours per week to scheduling overhead and fragmented time blocks. Unlike standalone tools like Reclaim or Calendly, AXIOM's scheduling engine shares context with your email, meetings, and task board -- so it knows when to protect focus time based on upcoming deadlines, not just calendar gaps.",
+      "Services and consulting teams lose 5-8 hours per week to scheduling overhead. Unlike standalone tools like Reclaim or Calendly, AXIOM's scheduling engine shares context with your email, meetings, and task board -- so it knows when to protect focus time based on upcoming deadlines, not just calendar gaps.",
     mockupLabel: "Smart Calendar View",
     capabilities: [
       {
@@ -258,9 +258,9 @@ const FEATURES: FeatureSection[] = [
     icon: Shield,
     headline: "Policy Engine",
     description:
-      "Govern AI with confidence. The Policy Engine enforces pre-execution checks on every AI action -- from spend limits and approval workflows to data-classification rules -- with a complete, exportable audit trail.",
+      "All LLM requests pass through the Policy Engine before execution. Policy rules evaluate the request, the user, the resource, and the context. Policies are written in Rego (Open Policy Agent) and cannot be overridden by prompt injection or user coercion.",
     whyItMatters:
-      "Enterprise AI adoption stalls without governance. AXIOM's Policy Engine is the control plane for every action the platform takes: every email draft, every calendar change, every CRM update passes through policy checks (Allowed / Denied / Needs Approval) before execution. This isn't a bolt-on compliance layer -- it's the architectural foundation that makes autonomous AI safe for regulated industries.",
+      "Enterprise AI adoption stalls without governance. AXIOM's Policy Engine enforces rules like 'no email drafts to competitors' and 'require 2-person approval for changes over $1M' -- enforced on the server before the LLM executes. This isn't a bolt-on compliance layer -- it's the architectural foundation. All outputs are treated as untrusted with schema validation and injection pattern detection.",
     mockupLabel: "Policy Rules & Audit Log",
     mockupComponent: <PolicyEngineMockup />,
     mockupCaption: "The Policy Engine enforces rules in real time. Test any action against your policy set, review risk-gated approvals, and trace every decision through the immutable audit log with correlation IDs.",
@@ -295,9 +295,9 @@ const FEATURES: FeatureSection[] = [
     icon: Brain,
     headline: "Memory System",
     description:
-      "AXIOM remembers so you don't have to. Its cross-context memory connects information across emails, meetings, and documents -- building transparent, human-readable organizational knowledge.",
+      "AXIOM maintains a semantic understanding of each employee's relationships, projects, decisions, and preferences -- stored in human-readable files the employee can inspect and edit at any time. GDPR-compliant by design.",
     whyItMatters:
-      "Every other AI tool starts from scratch. AXIOM's Memory System is the shared context layer that makes the entire platform smarter over time. Memories are stored as human-readable Markdown files -- not opaque embeddings -- so your team can inspect, edit, and export organizational knowledge at any time. Full memory transparency means you always know what AXIOM knows.",
+      "Every other AI tool starts from scratch. AXIOM's Memory System is the shared context layer that makes the entire platform smarter over time. After 30 days, AXIOM knows communication style, meeting preferences, reporting format, and decision patterns. Switching to a competitor means losing all of this learned behavior -- the switching cost is cognitive, not contractual.",
     mockupLabel: "Memory & Knowledge Explorer",
     mockupComponent: <MemoryMockup />,
     mockupCaption: "Memory files are plain Markdown you can read, edit, and export. The style drift monitor tracks tone consistency across channels, and preference signals are extracted from both explicit feedback and implicit behavior patterns.",
@@ -332,9 +332,9 @@ const FEATURES: FeatureSection[] = [
     icon: Zap,
     headline: "Skills & Workflows",
     description:
-      "Automate anything across five skill levels. AXIOM ships with 50 built-in skills classified from Explore (single-step, free) to Autonomous (self-initiating, outcome-priced). Built on MCP, every skill is policy-wrapped and auditable by design.",
+      "AXIOM ships with 50+ built-in skills and 20+ pre-built workflows across five skill levels -- from Explore (single-step, free) to Autonomous (self-initiating, outcome-priced). Built on MCP with 8-source skill import, every skill is policy-wrapped and auditable by design.",
     whyItMatters:
-      "AXIOM's five-level skill classification system -- Explore, Assist, Collaborate, Orchestrate, and Autonomous -- ensures you succeed before you scale. Users earn access to higher levels through demonstrated mastery (20+ runs, 85%+ acceptance rate, 3+ skills used), not by purchasing upgrades. Every skill runs through the Policy Engine and logs to the audit trail, with output-based pricing tied directly to the value delivered.",
+      "AXIOM's five-level skill classification ensures you succeed before you scale. Users earn access to higher levels through demonstrated mastery (20+ runs, 85%+ acceptance rate, 3+ skills used), not by purchasing upgrades. Built-in workflows coordinate skills into business processes: Email Triage to Task Extraction to Assignment to Daily Briefing, all running through the Policy Engine with output-based pricing.",
     mockupLabel: "Workflow Builder Canvas",
     mockupComponent: <SkillsMockup />,
     mockupCaption: "Every skill tracks accuracy, execution count, and autonomy trust level. Skills graduate from Supervised to Guided to Autonomous as they prove reliability -- with critical-risk operations always requiring human approval regardless of trust level.",
@@ -478,9 +478,9 @@ const FEATURES: FeatureSection[] = [
     icon: Phone,
     headline: "Voice & Telephony",
     description:
-      "Extend AXIOM to the phone. Voice and telephony are skills on the same platform -- not a bolt-on PBX. Handle calls with the same AI, policy engine, and memory that powers everything else.",
+      "AXIOM screens inbound calls in real-time, surfaces caller context and recent history, provides conversation guidance, and handles voicemail transcription. Outbound calls are initiated with full context pre-loaded.",
     whyItMatters:
-      "Phone calls shouldn't be a separate data silo. AXIOM treats voice as another channel on the same governed platform -- calls are transcribed by Deepgram or Whisper (LLM-agnostic, your choice), logged to your CRM, and stored in shared memory alongside every email and meeting.",
+      "For voice-heavy roles, AXIOM is not a separate data silo. Calls are transcribed by Deepgram or Whisper (LLM-agnostic, your choice), logged to your CRM, and stored in shared memory. Real-time guidance surfaces critical context mid-conversation: 'Customer mentions churn risk; pull up renewal terms before responding.'",
     mockupLabel: "Call Management Interface",
     mockupComponent: <CallsMockup />,
     mockupCaption: "Calls are logged with caller level, consent compliance, and disposition. Full transcripts are speaker-attributed and time-stamped. Action items are automatically extracted and routed to your task board.",
@@ -515,9 +515,9 @@ const FEATURES: FeatureSection[] = [
     icon: Store,
     headline: "SkillForge Marketplace",
     description:
-      "Build, share, and discover AI skills. SkillForge is AXIOM's marketplace where teams publish custom skills, organizations share internal automations, and developers extend the platform. Every skill runs with output-based pricing at its appropriate level.",
+      "Build, share, and discover AI skills. SkillForge is a visual no-code builder for creating custom skills, with an import system that converts tools from 8 major sources (Cowork Plugins, Copilot Studio, Claude Code, N8N, Zapier, WorkGraph, A2A Agent Cards, and manual creation) into native AXIOM skills.",
     whyItMatters:
-      "A platform is only as powerful as its ecosystem. SkillForge lets your team build once and share across the organization -- with every skill automatically wrapped in Policy Engine governance, full audit logging, and skill-level pricing regardless of who built it. Custom skills built for one client can be generalized and published for others, creating recurring per-run revenue and potential royalties for early contributors.",
+      "Organizations don't have to start from scratch. The import system converts existing tools into native skills with MCP tool declarations and Policy Engine permissions injected automatically. Beyond individual skills, the Playbook Marketplace distributes complete operational bundles -- install the CFO Playbook and get 10+ coordinated financial skills, workflows, and policies that work together immediately.",
     mockupLabel: "SkillForge Marketplace Browse",
     capabilities: [
       {
@@ -614,9 +614,9 @@ export function FeaturesContent() {
             </Link>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-400 animate-fade-up delay-200">
-            For IT, RevOps, and services teams who are drowning in point
-            solutions. AXIOM centralizes email, calendar, meetings, policy,
-            and memory into one governed platform.
+            A full operating layer that sits across email, calendar, tasks,
+            voice, and messaging. It learns each employee&apos;s preferences,
+            enforces company policies, and acts proactively on their behalf.
           </p>
 
           {/* Top 3 Outcomes Strip */}
@@ -923,8 +923,9 @@ export function FeaturesContent() {
                   { capability: "Email Intelligence", tools: "Fyxer, Superhuman", cost: "$49/user/mo", axiom: true },
                   { capability: "Calendar & Scheduling", tools: "Reclaim, Motion, Calendly", cost: "$58/user/mo", axiom: true },
                   { capability: "Meeting Transcription", tools: "Tactiq, Fireflies, Otter", cost: "$48/user/mo", axiom: true },
+                  { capability: "Voice & Telephony", tools: "Custom / none", cost: "Engineering time", axiom: true },
                   { capability: "Policy & Governance", tools: "Custom / none", cost: "Engineering time", axiom: true },
-                  { capability: "Shared Memory", tools: "None available", cost: "N/A", axiom: true },
+                  { capability: "Domain Playbooks", tools: "None available", cost: "N/A", axiom: true },
                 ].map((row, i) => (
                   <tr key={i} className="border-b border-gray-100 last:border-0">
                     <td className="px-6 py-3.5 font-medium text-navy">{row.capability}</td>

@@ -133,6 +133,18 @@ const matrixRows: MatrixRow[] = [
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
   },
   {
+    capability: "Voice / call screening",
+    skillLevel: { level: 2, name: "Assist" },
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
+  },
+  {
+    capability: "Domain Playbooks",
+    skillLevel: { level: 4, name: "Orchestrate" },
+    axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
+    fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
+  },
+  {
     capability: "Air-gap deployment",
     axiom: true, fyxer: false, reclaim: false, motion: false, superhuman: false,
     fireflies: false, otter: false, calendly: false, tactiq: false, readai: false,
@@ -198,18 +210,22 @@ const enterpriseMatrix: EnterpriseRow[] = [
   { capability: "24/7 proactive heartbeat", axiom: "Yes", openclaw: "Limited", copilot: "Event-driven", cowork: "No" },
   { capability: "Human-readable memory", axiom: "Yes", openclaw: "No", copilot: "No", cowork: "No" },
   { capability: "Voice / telephony", axiom: "Yes", openclaw: "No", copilot: "Teams only", cowork: "No" },
-  { capability: "Skill marketplace", axiom: "Yes", openclaw: "Yes (security issues)", copilot: "Copilot Studio", cowork: "Plugins" },
+  { capability: "Domain Playbooks", axiom: "Yes (5 built-in)", openclaw: "No", copilot: "No", cowork: "No" },
+  { capability: "A2A agent interoperability", axiom: "Yes (open protocol)", openclaw: "No", copilot: "Microsoft only", cowork: "No" },
+  { capability: "MCP Platform Adapters", axiom: "Yes (hot-swap)", openclaw: "Partial", copilot: "No", cowork: "No" },
+  { capability: "Skill marketplace", axiom: "Yes", openclaw: "Yes (security)", copilot: "Copilot Studio", cowork: "Plugins" },
   { capability: "SSO / SAML integration", axiom: "Yes", openclaw: "No", copilot: "Yes (Azure AD)", cowork: "Enterprise plan" },
   { capability: "Office 365 deep integration", axiom: "No", openclaw: "No", copilot: "Yes", cowork: "No" },
   { capability: "Open source", axiom: "Planned", openclaw: "Yes", copilot: "No", cowork: "No" },
+  { capability: "Community ecosystem", axiom: "New", openclaw: "175K+ stars", copilot: "Massive", cowork: "Growing" },
   { capability: "Ships today", axiom: "In development", openclaw: "Yes", copilot: "Yes", cowork: "Yes" },
   { capability: "Pricing model", axiom: "Output-based", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
 ];
 
 const enterpriseCompetitors = [
-  { slug: "openclaw", name: "OpenClaw", tagline: "Open-source AI agent with 175K+ GitHub stars", badge: "Open Source" },
-  { slug: "copilot", name: "Microsoft Copilot", tagline: "Deep Office 365 integration, enterprise-backed", badge: "Incumbent" },
-  { slug: "cowork", name: "Anthropic Cowork", tagline: "Frontier model quality for individual users", badge: "Frontier AI" },
+  { slug: "openclaw", name: "OpenClaw", tagline: "Open-source AI agent framework with 175K+ GitHub stars and Apache 2.0 license. Runs anywhere, model-agnostic.", badge: "Open Source" },
+  { slug: "copilot", name: "Microsoft Copilot", tagline: "Deep Office 365 integration for 400M users. Native Outlook, Teams, Word, and Excel support.", badge: "Incumbent" },
+  { slug: "cowork", name: "Anthropic Cowork", tagline: "Cross-channel managed AI assistant. Claude-native with SSO, plugins, and audit logging.", badge: "Frontier AI" },
 ];
 
 const pointSolutionSlugs = [
@@ -291,10 +307,10 @@ export default function ComparePage() {
             Replace your entire AI&nbsp;stack.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-            Most teams juggle nine or more point-solution AI tools &mdash; each with its
-            own login, billing, and data silo. AXIOM consolidates email, calendar,
-            meetings, transcription, and task management into one governed platform
-            and saves the average 500-person org{" "}
+            Deploying 5+ tools means 5 logins, 5 integrations, 5 data silos, and zero
+            coordination between them. A task created in Motion does not trigger an email
+            in Superhuman. AXIOM is one system where email, calendar, tasks, and voice
+            are unified &mdash; saving the average 500-person org{" "}
             <span className="text-success font-semibold">$837K&ndash;$1.53M per year</span>.
           </p>
         </div>
@@ -311,7 +327,7 @@ export default function ComparePage() {
               AXIOM vs enterprise competitors
             </h2>
             <p className="mt-4 text-muted-text">
-              How AXIOM compares to the three platforms enterprise buyers evaluate most.
+              How AXIOM compares to the platforms enterprise buyers evaluate most &mdash; OpenClaw, Microsoft Copilot, and Anthropic Cowork.
             </p>
           </div>
 
