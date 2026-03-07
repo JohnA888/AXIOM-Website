@@ -25,6 +25,8 @@ import {
   Tag,
   ClipboardList,
   ScrollText,
+  Laptop,
+  HardDrive,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -38,6 +40,19 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 
 const deploymentOptions = [
+  {
+    icon: Laptop,
+    title: "Local",
+    subtitle: "Single Machine",
+    description:
+      "AXIOM runs on a single machine — your laptop, a dev server, or an edge device. All data stays local. No cloud dependency, no internet required. Uses SQLite and the local filesystem.",
+    features: [
+      "Zero cloud dependency",
+      "SQLite + local filesystem",
+      "Ideal for testing & prototyping",
+      "Same codebase as Server mode",
+    ],
+  },
   {
     icon: Cloud,
     title: "Cloud",
@@ -53,23 +68,23 @@ const deploymentOptions = [
   },
   {
     icon: Server,
-    title: "Hybrid",
+    title: "Server",
     subtitle: "Your Infrastructure",
     description:
-      "Run AXIOM on your own cloud or data center. Retain full control over your compute and storage while AXIOM manages orchestration and model routing.",
+      "Run AXIOM on a server in your VPC, private cloud, or on-premise data center. PostgreSQL, S3, and Redis scale to 10,000+ employees. All data stays within your infrastructure.",
     features: [
       "Deploy in your VPC",
       "Customer-managed keys",
-      "Private model endpoints",
+      "PostgreSQL + S3 + Redis",
       "SSO / SCIM provisioning",
     ],
   },
   {
     icon: Shield,
     title: "Air-Gapped",
-    subtitle: "On-Premise with Ollama",
+    subtitle: "Complete Isolation",
     description:
-      "Complete network isolation. AXIOM runs entirely within your perimeter using Ollama for local LLM inference. Zero data egress, zero external API calls.",
+      "Complete network isolation. No calls home, no cloud dependencies, no data leaving the boundary. Requires pre-loading LLM weights and cached skill definitions.",
     features: [
       "Zero data egress",
       "Local LLM via Ollama",
@@ -270,7 +285,7 @@ export default function EnterprisePage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {deploymentOptions.map((option) => (
               <div
                 key={option.title}
@@ -308,6 +323,85 @@ export default function EnterprisePage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Same Codebase Callout ────────────────────────────── */}
+      <section className="pb-24 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-2xl border border-accent-blue/20 bg-accent-blue/5 p-8 text-center">
+            <h3 className="text-xl font-bold text-navy mb-2">Same Codebase, Every Mode</h3>
+            <p className="text-muted-text max-w-2xl mx-auto">
+              All four deployment modes run the same AXIOM codebase. Start in Local mode for testing, graduate to Server mode for a department pilot, and scale to Air-Gapped mode for sensitive workloads — all without re-architecture.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Local-First AI ───────────────────────────────────── */}
+      <section className="py-24 bg-surface">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <span className="inline-block rounded-full border border-accent-blue/30 bg-accent-blue/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-accent-blue uppercase mb-4">
+              Data Sovereignty
+            </span>
+            <h2 className="text-3xl font-bold text-navy sm:text-4xl">
+              Local-First AI: Data Sovereignty Without Compromise
+            </h2>
+            <p className="mt-4 text-lg text-muted-text max-w-2xl mx-auto">
+              Every AI operation can run entirely on your hardware. No cloud API calls. No token budgets. No third-party data processing agreements required.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-white">
+                <DollarSign className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-navy">Zero Recurring AI Cost</h3>
+              <p className="mt-3 text-sm text-muted-text leading-relaxed">
+                A Mac Mini M4 Pro ($2,000 one-time) replaces $200–$400/month in API costs. For teams running 50,000+ LLM requests per month, local deployment pays for itself within 3–6 months.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-white p-8">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-white">
+                <Shield className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-navy">Regulated Industry Ready</h3>
+              <p className="mt-3 text-sm text-muted-text leading-relaxed">
+                For legal, healthcare, financial services, and government teams that cannot send data to external APIs. HIPAA, SOX, and data residency compatible. Air-gapped operation with full functionality.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-white p-8">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-white">
+                <HardDrive className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-navy">Intelligent Hybrid Mode</h3>
+              <p className="mt-3 text-sm text-muted-text leading-relaxed">
+                Start local, connect cloud when you want premium reasoning. The Model Registry auto-selects lightweight 7B models for email triage and powerful 70B models for contract analysis. Cloud API is optional, not required.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-accent-blue/20 bg-accent-blue/5 p-8">
+            <h3 className="text-lg font-bold text-navy mb-4">Hardware Investment vs. API Spend</h3>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="flex items-start gap-4">
+                <Check className="h-5 w-5 text-success mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-navy">Mac Mini M4 Pro 48GB — $2,000</p>
+                  <p className="text-sm text-muted-text">Replaces $200–$400/month in API costs for the Operations Playbook. Break-even in 3–6 months with unlimited usage thereafter.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="h-5 w-5 text-success mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-navy">Mac Mini M4 Ultra 512GB — $7,500</p>
+                  <p className="text-sm text-muted-text">Replaces $500–$800/month for the full platform. Break-even in 6–12 months with unlimited usage thereafter.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

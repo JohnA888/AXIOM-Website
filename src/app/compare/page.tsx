@@ -206,6 +206,7 @@ const enterpriseMatrix: EnterpriseRow[] = [
   { capability: "Policy engine (pre-execution)", axiom: "Yes", openclaw: "No", copilot: "Agent 365", cowork: "No" },
   { capability: "Enterprise audit trail", axiom: "Yes", openclaw: "No", copilot: "Yes", cowork: "No" },
   { capability: "Air-gapped / offline mode", axiom: "Yes", openclaw: "Partial", copilot: "No", cowork: "No" },
+  { capability: "Local-first AI (on-device LLMs)", axiom: "Yes", openclaw: "Partial", copilot: "No", cowork: "No" },
   { capability: "Provider-agnostic (swap LLMs)", axiom: "Yes", openclaw: "Yes", copilot: "No", cowork: "No" },
   { capability: "24/7 proactive heartbeat", axiom: "Yes", openclaw: "Limited", copilot: "Event-driven", cowork: "No" },
   { capability: "Human-readable memory", axiom: "Yes", openclaw: "No", copilot: "No", cowork: "No" },
@@ -220,6 +221,7 @@ const enterpriseMatrix: EnterpriseRow[] = [
   { capability: "Community ecosystem", axiom: "New", openclaw: "175K+ stars", copilot: "Massive", cowork: "Growing" },
   { capability: "Ships today", axiom: "In development", openclaw: "Yes", copilot: "Yes", cowork: "Yes" },
   { capability: "Pricing model", axiom: "Output-based", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
+  { capability: "Per-user cost (est.)", axiom: "$15–$45/mo", openclaw: "Free + infra", copilot: "$30/mo + M365", cowork: "$20–$200/mo" },
 ];
 
 const enterpriseCompetitors = [

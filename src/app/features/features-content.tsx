@@ -68,6 +68,16 @@ import {
   Layers,
   DollarSign,
   TrendingDown,
+  HardDrive,
+  FolderOpen,
+  CloudCog,
+  Cpu,
+  Plug,
+  UserCircle,
+  Palette,
+  Heart,
+  Smile,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -510,6 +520,111 @@ const FEATURES: FeatureSection[] = [
     docsLink: "/docs",
   },
   {
+    id: "cloud-files",
+    label: "Cloud File Access",
+    icon: FolderOpen,
+    headline: "Cloud File Access",
+    description:
+      "Connects to OneDrive, Dropbox, and Google Drive via OAuth. Searches, reads, and organizes files on behalf of each employee. All file access governed by Policy Engine and logged.",
+    whyItMatters:
+      "Your files are scattered across cloud providers. AXIOM bridges the gap -- searching documents, pulling context into meeting briefs, and organizing files without switching between three different apps. Every file access is policy-governed, so sensitive documents stay protected.",
+    mockupLabel: "Cloud File Browser",
+    capabilities: [
+      {
+        icon: SearchIcon,
+        title: "Cross-Provider Search",
+        description: "Search across OneDrive, Dropbox, and Google Drive simultaneously from one interface.",
+      },
+      {
+        icon: FileText,
+        title: "Contextual File Surfacing",
+        description: "Automatically pull relevant documents into meeting briefs, email drafts, and task context.",
+      },
+      {
+        icon: FolderSync,
+        title: "Smart Organization",
+        description: "AI-assisted file organization, tagging, and cleanup across all connected cloud providers.",
+      },
+      {
+        icon: Shield,
+        title: "Policy-Governed Access",
+        description: "Every file read, search, and action flows through the Policy Engine with full audit logging.",
+      },
+    ],
+    integrations: ["OneDrive", "Dropbox", "Google Drive"],
+    docsLink: "/docs",
+  },
+  {
+    id: "local-ai",
+    label: "Local-First AI",
+    icon: HardDrive,
+    headline: "Local-First AI",
+    description:
+      "AXIOM supports 100% local deployment. Every AI operation -- from email triage to contract review -- can run entirely on your hardware. Your data never leaves your network. No cloud API calls. No token budgets. No third-party data processing agreements required.",
+    whyItMatters:
+      "For legal, healthcare, financial services, and government teams that cannot send data to external APIs, local-only inference meets your compliance requirements. A Mac Mini M4 Pro ($2,000 one-time) replaces $200\u2013$400/month in API costs. Break-even in 3\u20136 months with unlimited usage thereafter.",
+    mockupLabel: "Local Deployment Dashboard",
+    capabilities: [
+      {
+        icon: Server,
+        title: "Zero Recurring AI Cost",
+        description: "One hardware investment, unlimited usage. No monthly API fees, no per-token charges. The Operations Playbook runs on a Mac Mini M4 Pro ($2,000).",
+      },
+      {
+        icon: Cpu,
+        title: "Intelligent Hybrid Mode",
+        description: "Start local, connect cloud when you want premium reasoning. The Model Registry auto-selects lightweight 7B models for triage and powerful 70B models for analysis.",
+      },
+      {
+        icon: Shield,
+        title: "Regulated Industry Ready",
+        description: "Air-gapped operation with full functionality. HIPAA, SOX, and data residency compatible. Zero data egress, zero external API calls.",
+      },
+      {
+        icon: DollarSign,
+        title: "Hardware vs. API Savings",
+        description: "Mac Mini M4 Pro 48GB ($2,000) replaces $200\u2013$400/mo in API costs. Mac Mini M4 Ultra 512GB ($7,500) replaces $500\u2013$800/mo for the full platform.",
+      },
+    ],
+    integrations: ["Ollama", "Local LLMs", "Mac Mini M4 Pro", "Mac Mini M4 Ultra"],
+    docsLink: "/docs",
+  },
+  {
+    id: "personalization",
+    label: "Assistant Personalization",
+    icon: UserCircle,
+    headline: "Assistant Personalization",
+    description:
+      "AXIOM assistants aren't generic chatbots. As employees grow with the platform, they unlock the ability to personalize their assistant's identity -- name, personality, backstory, and coaching style. Each Domain Playbook comes with intelligent defaults that match the domain culture.",
+    whyItMatters:
+      "Personalization fundamentally changes how coaching nudges land, how progress celebrations feel, and how deeply employees invest in their AXIOM relationship. Enterprise research shows personalized tools have 3\u20134x higher retention than generic alternatives. Switching to a competitor means losing a colleague, not just swapping software.",
+    mockupLabel: "Assistant Customization",
+    capabilities: [
+      {
+        icon: Palette,
+        title: "Name & Personality",
+        description: "At Level 2, employees name their assistant and choose a coaching style. By Level 3, they can customize the full personality.",
+      },
+      {
+        icon: BookOpen,
+        title: "Custom Backstory",
+        description: "Write a backstory for your assistant that shapes how it communicates, coaches, and celebrates your wins.",
+      },
+      {
+        icon: Smile,
+        title: "Domain-Matched Defaults",
+        description: "Finance defaults to precision, sales defaults to momentum, HR defaults to empathy -- but every employee can make it their own.",
+      },
+      {
+        icon: Heart,
+        title: "Emotional Ownership",
+        description: "The 'IKEA effect' creates deep engagement. Employees who personalize their assistant show 3\u20134x higher retention rates.",
+      },
+    ],
+    integrations: ["All AXIOM Modules", "WorkSHIFT Coach", "Domain Playbooks"],
+    docsLink: "/docs",
+  },
+  {
     id: "skillforge",
     label: "SkillForge Marketplace",
     icon: Store,
@@ -668,7 +783,7 @@ export function FeaturesContent() {
           <div className="flex items-center gap-3">
             <ShieldCheck className="h-5 w-5 text-accent-blue" />
             <span className="text-sm font-medium text-gray-300">
-              Enterprise-grade by design &mdash; SOC-2, RLS, OPA policies, air-gap deployment, BYO LLM
+              Enterprise-grade by design &mdash; SOC-2, RLS, OPA policies, air-gap deployment, BYO LLM, local-first AI
             </span>
           </div>
           <div className="flex items-center gap-4">
@@ -966,6 +1081,124 @@ export function FeaturesContent() {
             >
               See the full replacement and ROI breakdown <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  DOMAIN PLAYBOOKS                                            */}
+      {/* ============================================================ */}
+      <section className="py-20 lg:py-28 bg-surface border-t border-gray-200">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="mb-4 inline-block rounded-full bg-accent-blue/10 px-4 py-1.5 text-xs font-semibold text-accent-blue uppercase tracking-wide">
+              Ready-Made Operations
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-navy leading-tight">
+              Domain Playbooks: Deploy a department in minutes
+            </h2>
+            <p className="mt-4 text-base text-muted-text">
+              Each Playbook bundles coordinated Skills, automated Workflows, MCP server configurations, and Policy Engine rules into a single installable package. No other platform ships with pre-built operational suites.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "CFO Playbook",
+                skills: 10,
+                highlights: [
+                  "Cash position monitoring",
+                  "Budget variance analysis",
+                  "Rolling forecasts with scenario analysis",
+                  "Accounts receivable aging alerts",
+                  "Financial close task management",
+                  "Board report generation",
+                ],
+              },
+              {
+                title: "Sales Playbook",
+                skills: 12,
+                highlights: [
+                  "Pipeline health scoring",
+                  "Deal risk assessment & escalation",
+                  "Forecast accuracy tracking",
+                  "Competitive intelligence gathering",
+                  "Proposal generation with ROI calculations",
+                  "Win/loss analysis",
+                ],
+              },
+              {
+                title: "Legal Playbook",
+                skills: 8,
+                highlights: [
+                  "Contract review automation",
+                  "NDA triage and classification",
+                  "Regulatory change tracking",
+                  "Matter management",
+                  "Outside counsel coordination",
+                  "IP portfolio monitoring",
+                ],
+              },
+              {
+                title: "Operations Playbook",
+                skills: 10,
+                highlights: [
+                  "SLA monitoring & escalation",
+                  "Incident response coordination",
+                  "Vendor performance tracking",
+                  "Capacity planning & forecasting",
+                  "Process bottleneck detection",
+                  "Cross-department coordination",
+                ],
+              },
+              {
+                title: "HR Playbook",
+                skills: 8,
+                highlights: [
+                  "Onboarding workflow orchestration",
+                  "Time-off management",
+                  "Performance review cycle coordination",
+                  "Headcount planning",
+                  "Employee engagement pulse analysis",
+                  "Offboarding checklist management",
+                ],
+              },
+              {
+                title: "Cross-Playbook Coordination",
+                skills: 0,
+                highlights: [
+                  "Executive Playbook consumes insights from CFO, Sales, and HR",
+                  "Unified briefings across departments",
+                  "Policy Engine governs cross-Playbook data access",
+                  "Playbook-scoped memory namespaces",
+                  "Automatic capability discovery",
+                  "A2A protocol for agent collaboration",
+                ],
+              },
+            ].map((playbook) => (
+              <div
+                key={playbook.title}
+                className="rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-lg hover:border-accent-blue/20 transition-all"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-navy">{playbook.title}</h3>
+                  {playbook.skills > 0 && (
+                    <span className="rounded-full bg-accent-blue/10 px-3 py-1 text-xs font-semibold text-accent-blue">
+                      {playbook.skills} skills
+                    </span>
+                  )}
+                </div>
+                <ul className="space-y-2">
+                  {playbook.highlights.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-text">
+                      <CheckCircle2 className="h-4 w-4 text-success mt-0.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>

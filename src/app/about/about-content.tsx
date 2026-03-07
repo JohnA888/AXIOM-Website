@@ -37,7 +37,7 @@ const values = [
     icon: ShieldCheck,
     title: "Enterprise-Grade Governance",
     description:
-      "SOC 2 Type II compliance, end-to-end encryption, role-based access control, and air-gap deployment options. Built for regulated industries and security-first organizations from day one.",
+      "SOC 2 Type II compliance, end-to-end encryption, role-based access control, local-first AI inference via Ollama, and air-gap deployment options. Your data never leaves your network. Built for regulated industries and security-first organizations from day one.",
   },
   {
     icon: Sparkles,
@@ -266,7 +266,7 @@ export function AboutContent() {
                 icon: Clock,
                 title: "Not Yet Shipping",
                 description:
-                  "AXIOM is in active development. Organizations needing a solution today should evaluate alternatives. We're targeting Q3-Q4 2026.",
+                  "AXIOM is in active development. The public beta is planned for Q2 2026, with GA in Q4 2026. Organizations needing a solution deployed today should evaluate alternatives.",
               },
               {
                 icon: Monitor,
@@ -278,13 +278,13 @@ export function AboutContent() {
                 icon: Globe,
                 title: "Smaller Ecosystem",
                 description:
-                  "Our SkillForge launches with the platform. But our skill import system lets you bring Cowork plugins, Copilot Studio agents, and Claude Code skills into AXIOM.",
+                  "Our SkillForge launches with the platform. But our skill import system supports 8 sources: Cowork Plugins, Copilot Studio Agents, Claude Code Skills, N8N Flows, Zapier Zaps, WorkGraph Skills, A2A Agent Cards, and manual creation. Plus, pre-built Domain Playbooks provide complete operational suites immediately.",
               },
               {
                 icon: Cpu,
-                title: "Model Quality Varies",
+                title: "Always the Latest Models",
                 description:
-                  "Provider independence means quality depends on your choice. Local 8B models won't match Claude Opus \u2014 but you can route to Anthropic's API for complex tasks.",
+                  "AXIOM always uses the latest models from Anthropic, OpenAI, Google, and leading open-source providers. When a new generation ships, AXIOM adopts it with a configuration change. Quality automatically improves as the LLM market advances.",
               },
             ].map((item, index) => (
               <div

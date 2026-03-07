@@ -19,6 +19,8 @@ import {
   Lock,
   Zap,
   Eye,
+  HardDrive,
+  Cpu,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -502,10 +504,10 @@ export default function Home() {
 
               <p className="mt-4 text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
                 AXIOM is the governed AI ops layer that sits across email,
-                calendar, tasks, voice, and messaging. It learns each
+                calendar, tasks, voice, and messaging &mdash; accessible via web, Slack,
+                Teams, WhatsApp, Telegram, Discord, SMS, or Outlook. It learns each
                 employee&apos;s preferences, enforces company policies, and acts
-                proactively on their behalf &mdash; with shared memory and a 24/7
-                Heartbeat engine.
+                proactively on their behalf.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -907,13 +909,19 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: Shield,
                 title: "AI Sovereignty",
                 description:
                   "Self-hosted in your VPC or air-gapped. Your data never leaves your infrastructure. Swap LLMs with one config change — Claude, GPT, Llama, or any model.",
+              },
+              {
+                icon: HardDrive,
+                title: "Local-First AI",
+                description:
+                  "Run 100% on your hardware with zero cloud dependency. A Mac Mini M4 Pro ($2,000 one-time) replaces $200\u2013$400/month in API costs. Zero recurring AI fees, unlimited usage.",
               },
               {
                 icon: Lock,
@@ -932,6 +940,12 @@ export default function Home() {
                 title: "Memory Transparency",
                 description:
                   "Long-term memory stored in human-readable markdown files. Employees read, edit, and delete what the AI knows about them. GDPR-compliant by design.",
+              },
+              {
+                icon: Cpu,
+                title: "Intelligent Hybrid Mode",
+                description:
+                  "Start local, connect cloud when you want premium reasoning. The Model Registry auto-selects the right model for each task — lightweight 7B for email triage, powerful 70B for contract analysis.",
               },
             ].map((item, i) => (
               <div
